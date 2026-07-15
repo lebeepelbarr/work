@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REsimpli 6.0 Launch Pop-up — Item 6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     REsimpli 6.0 Launch Pop-up — Item 6 (in-app modal)
+     Audience: all active subscribers · Show: Aug 15
+     Countdown target: Aug 31, 11:59 PM ET (set in JS below)
+     Brand system (matched to launch creative):
+       bg near-black #030807 → deep teal #062220
+       neon cyan accent #4DEFE0 · teal #12B4A0
+       coral CTA #FF8F7E → #F76C5E
+       Poppins (UI) · Quicksand (wordmark)
+     ============================================================ */
+  :root{
+    --bg0:#030807; --bg1:#062220; --panel0:#04100F;
+    --neon:#4DEFE0; --neon-d:#17E8CE; --teal:#12B4A0; --teal-hl:#37E3CE;
+    --ice:#C8E9E4; --white:#FFFFFF;
+    --card0:#123A36; --card1:#0B2421; --card-stroke:rgba(46,124,113,.65);
+    --coral0:#FF8F7E; --coral1:#F76C5E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Poppins,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;background:#F3F6F5;overflow:hidden}
+
+  /* ---- Mock app behind the modal (demo only — remove in production) ---- */
+  .mock-app{position:fixed;inset:0;padding:24px;filter:blur(2px);opacity:.5}
+  .mock-nav{height:64px;background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(4,16,15,.08);display:flex;align-items:center;padding:0 24px;gap:24px;margin-bottom:20px}
+  .mock-logo{font-family:Quicksand,Poppins,sans-serif;font-weight:600;font-size:24px;color:#0B2421}
+  .mock-pill{height:12px;width:70px;border-radius:6px;background:#E0EAE8}
+  .mock-grid{display:grid;grid-template-columns:220px 1fr 1fr;gap:20px;height:70vh}
+  .mock-card{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(4,16,15,.08)}
+
+  /* ---- Overlay ---- */
+  .overlay{position:fixed;inset:0;background:rgba(3,8,7,.72);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:100;animation:fadeIn .35s ease}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+  /* ---- Modal ---- */
+  .modal{position:relative;width:min(660px,100%);border-radius:26px;overflow:hidden;color:var(--white);
+    background:linear-gradient(135deg,var(--bg0) 0%,var(--panel0) 50%,var(--bg1) 100%);
+    border:1px solid rgba(55,227,206,.22);
+    box-shadow:0 30px 90px rgba(0,0,0,.7), 0 0 60px rgba(18,180,160,.12);
+    animation:pop .45s cubic-bezier(.2,.9,.3,1.1)}
+  @keyframes pop{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.overlay,.modal{animation:none}}
+
+  /* teal light streaks + glow, matching the launch creative */
+  .streak{position:absolute;pointer-events:none;filter:blur(26px);opacity:.5}
+  .streak.tl{top:-70px;left:-90px;width:300px;height:220px;
+    background:radial-gradient(ellipse at center,rgba(23,232,206,.55) 0%,rgba(23,232,206,0) 68%);transform:rotate(-32deg)}
+  .streak.br{bottom:-90px;right:-100px;width:340px;height:240px;
+    background:radial-gradient(ellipse at center,rgba(23,232,206,.4) 0%,rgba(23,232,206,0) 68%);transform:rotate(-28deg)}
+  .topglow{position:absolute;top:0;left:0;right:0;height:55%;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 0%,rgba(18,180,160,.22) 0%,rgba(18,180,160,0) 70%)}
+
+  .modal-inner{position:relative;padding:42px 48px 38px}
+
+  .close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(200,233,228,.18);cursor:pointer;
+    background:rgba(200,233,228,.06);color:var(--ice);font-size:17px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .15s}
+  .close:hover{background:rgba(200,233,228,.14)}
+  .close:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+
+  /* logo lockup */
+  .brand{display:flex;align-items:center;gap:2px;margin-bottom:18px}
+  .brand svg{display:block}
+  .brand .word{font-family:Quicksand,Poppins,sans-serif;font-weight:600;font-size:27px;color:var(--white);letter-spacing:.5px}
+
+  .eyebrow{font-weight:600;font-size:12.5px;letter-spacing:4px;color:var(--neon);opacity:.85;margin-bottom:12px}
+
+  h1{font-weight:700;font-size:clamp(30px,5vw,44px);letter-spacing:-.5px;line-height:1.1;margin-bottom:14px}
+  h1 .accent{color:var(--neon);text-shadow:0 0 18px rgba(77,239,224,.55),0 0 40px rgba(77,239,224,.25)}
+
+  .body-copy{color:var(--ice);font-size:16px;line-height:1.6;max-width:54ch;margin-bottom:22px}
+  .body-copy strong{color:var(--white);font-weight:600}
+
+  /* quick-action row — glass pills */
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+  .action{display:flex;align-items:center;gap:9px;font-weight:500;font-size:14px;color:var(--ice);text-decoration:none;
+    background:linear-gradient(180deg,var(--card0),var(--card1));border:1px solid var(--card-stroke);
+    padding:11px 16px;border-radius:999px;transition:border-color .15s,transform .15s}
+  .action:hover{border-color:var(--teal-hl);transform:translateY(-1px)}
+  .action:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+
+  /* countdown — highlighted teal card, like the launch creative's hot card */
+  .countdown-wrap{background:linear-gradient(180deg,var(--teal-hl),var(--teal));border-radius:18px;
+    box-shadow:0 0 44px rgba(55,227,206,.28);
+    padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+  .countdown-label{font-size:14.5px;font-weight:600;color:#04302A;line-height:1.4;max-width:30ch}
+  .timer{display:flex;gap:8px}
+  .t-unit{background:rgba(4,48,42,.9);border-radius:10px;padding:8px 0;width:58px;text-align:center}
+  .t-num{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--neon);display:block}
+  .t-lab{font-size:9.5px;font-weight:600;letter-spacing:1.5px;color:var(--ice);text-transform:uppercase}
+
+  /* buttons */
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-primary{background:linear-gradient(180deg,var(--coral0),var(--coral1));color:var(--white);font-weight:600;font-size:16.5px;border:none;cursor:pointer;
+    padding:16px 32px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:inherit;
+    box-shadow:0 10px 30px rgba(247,108,94,.42);transition:transform .15s,box-shadow .15s}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(247,108,94,.55)}
+  .btn-primary:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+  .btn-ghost{background:none;border:none;cursor:pointer;color:var(--ice);opacity:.7;font-weight:500;font-size:15px;font-family:inherit;
+    padding:14px 10px;text-decoration:underline;text-underline-offset:3px;transition:opacity .15s}
+  .btn-ghost:hover{opacity:1}
+  .btn-ghost:focus-visible{outline:2px solid var(--neon);outline-offset:2px;border-radius:6px}
+
+  @media (max-width:560px){
+    .modal-inner{padding:34px 26px 30px}
+    .countdown-wrap{justify-content:center;text-align:center}
+    .btn-row{flex-direction:column;align-items:stretch}
+    .btn-primary{justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- Mock app background — DEMO ONLY, delete in production -->
+<div class="mock-app" aria-hidden="true">
+  <div class="mock-nav"><div class="mock-logo">resimpli</div><div class="mock-pill"></div><div class="mock-pill"></div><div class="mock-pill"></div></div>
+  <div class="mock-grid"><div class="mock-card"></div><div class="mock-card"></div><div class="mock-card"></div></div>
+</div>
+
+<!-- ================= POP-UP STARTS HERE ================= -->
+<div class="overlay" id="launchOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <div class="modal">
+    <div class="topglow" aria-hidden="true"></div>
+    <div class="streak tl" aria-hidden="true"></div>
+    <div class="streak br" aria-hidden="true"></div>
+
+    <div class="modal-inner">
+      <button class="close" aria-label="Close" onclick="dismissPopup()">&#10005;</button>
+
+      <!-- roof + rE mark + wordmark -->
+      <div class="brand" aria-label="REsimpli">
+        <svg width="64" height="52" viewBox="0 0 140 110" fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 8 44 L 62 8 L 116 44"/>
+          <path d="M 16 98 L 16 68 Q 16 56 30 56"/>
+          <path d="M 48 60 L 88 60 M 48 78 L 80 78 M 48 96 L 88 96"/>
+        </svg>
+        <span class="word">simpli</span>
+      </div>
+
+      <p class="eyebrow">THE BIGGEST UPDATE WE'VE EVER SHIPPED</p>
+
+      <h1 id="popupTitle">🚀 REsimpli <span class="accent">6.0</span> is here.</h1>
+
+      <p class="body-copy">
+        <strong>Unlimited calling. Triple-line dialer. Your own autonomous AI agents.</strong>
+        Your CRM now works your leads — not just stores them.
+      </p>
+
+      <div class="actions">
+        <a class="action" href="[TRAINING_LINK]">🎥 Watch the training</a>
+        <a class="action" href="[AI_AGENTS_LINK]">🤖 Turn on your AI agents</a>
+        <a class="action" href="[WEBINAR_LINK]">📅 Join the live webinar</a>
+      </div>
+
+      <div class="countdown-wrap">
+        <p class="countdown-label">New AI Agents are live — <strong>get set up before Aug 31</strong> ⏳</p>
+        <div class="timer" id="timer" aria-live="polite">
+          <div class="t-unit"><span class="t-num" id="dd">--</span><span class="t-lab">Days</span></div>
+          <div class="t-unit"><span class="t-num" id="hh">--</span><span class="t-lab">Hrs</span></div>
+          <div class="t-unit"><span class="t-num" id="mm">--</span><span class="t-lab">Min</span></div>
+          <div class="t-unit"><span class="t-num" id="ss">--</span><span class="t-lab">Sec</span></div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-primary" href="[TRAINING_LINK]">Watch the 6.0 Training <span aria-hidden="true">→</span></a>
+        <button class="btn-ghost" onclick="dismissPopup()">Remind me later</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ================= POP-UP ENDS HERE ================= -->
+
+<script>
+  // Countdown target: Aug 31, 11:59:59 PM Eastern (offset -04:00 during EDT).
+  // Adjust year/timezone as needed before shipping.
+  const TARGET = new Date("2026-08-31T23:59:59-04:00").getTime();
+
+  function tick(){
+    const diff = Math.max(0, TARGET - Date.now());
+    const d = Math.floor(diff / 864e5);
+    const h = Math.floor(diff % 864e5 / 36e5);
+    const m = Math.floor(diff % 36e5 / 6e4);
+    const s = Math.floor(diff % 6e4 / 1e3);
+    document.getElementById("dd").textContent = String(d).padStart(2,"0");
+    document.getElementById("hh").textContent = String(h).padStart(2,"0");
+    document.getElementById("mm").textContent = String(m).padStart(2,"0");
+    document.getElementById("ss").textContent = String(s).padStart(2,"0");
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  function dismissPopup(){
+    // Production note: "Remind me later" should snooze (e.g. re-show after 24h
+    // via your user-preferences store), while ✕ can suppress for the session.
+    document.getElementById("launchOverlay").style.display = "none";
+  }
+
+  // Close on Escape for accessibility
+  document.addEventListener("keydown", e => { if (e.key === "Escape") dismissPopup(); });
+</script>
+</body>
+</html>
