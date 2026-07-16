@@ -251,6 +251,12 @@
   .grule{display:block;font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;}
   .tchip{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--sans);font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;font-weight:600;color:var(--teal);background:#eef7f7;border:1px solid #cfe7e8;border-radius:999px;padding:4px 11px;}
   .tchip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);}
+
+  /* michael page accents */
+  .aftermile{margin-top:30px;}
+  .aftermile .cap{font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;}
+  .chips span{font-size:13.5px;font-weight:600;color:var(--teal);background:#eef7f7;border:1px solid #cfe7e8;border-radius:999px;padding:9px 18px;}
 </style>
 </head>
 <body>
@@ -277,7 +283,7 @@
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <span class="badge"><span class="dot"></span> Deal of the Week &middot; Real investor, real numbers</span>
+    <span class="badge"><span class="dot"></span> Deal of the Week &middot; The human side of investing</span>
     <h1>This house had no seller. He made <em>$41,000</em> finding one.</h1>
     <p class="lead" style="margin-top:20px;">Michael spotted a house in Metairie that had sat vacant since Hurricane Katrina. The owner had passed away, and her only daughter, estranged for years, never knew. He tracked her down through neighbors and family friends, walked her through the succession process, and paid her over $100,000 for a property she didn&rsquo;t know she had inherited. Twenty-one days after the lead, the deal closed.</p>
     <p class="lead" style="margin-top:14px;">Here&rsquo;s the full breakdown: the search, the numbers, and what Michael did after the closing that no spreadsheet will ever show.</p>
@@ -349,19 +355,23 @@
   <div class="wrap">
     <p class="eyebrow">The story</p>
     <h2>A vacant house. A missing heir. A closing that changed a life.</h2>
-    <p class="lead">You already know the numbers, but the numbers are the smallest part of this one. Here&rsquo;s how it actually happened.</p>
+    <p class="lead">You already know the numbers, but they&rsquo;re the smallest part of this story. Here&rsquo;s what actually happened.</p>
 
     <ol class="timeline reveal">
-      <li data-day="Day 1"><h3>The drive-by</h3><p>The house had clearly been empty for years. Since Katrina, it turned out: two decades of vacancy, storm damage that was never repaired, and an owner nobody had seen. A vacancy that old almost always means a problem nobody has solved, so Michael went looking for the problem.</p></li>
-      <li data-day="Search"><h3>Finding the heir</h3><p>The owner had passed away. Her only daughter was estranged and didn&rsquo;t even know her mother was gone. With no seller to call, Michael worked the block instead: neighbors, family friends, anyone who remembered the family, until the trail finally led to her.</p></li>
-      <li data-day="Deal"><h3>The succession</h3><p>The daughter had inherited a house she never knew was hers. Michael guided her through the succession process, kept the closing smooth, and paid her over $100,000. The contract then went to a buyer ready to take on the $150,000 renovation.</p></li>
-      <li data-day="Day 21"><h3>Closed, then the extra mile</h3><p>Twenty-one days after the lead, the deal closed with a <strong>$41,000</strong> assignment fee. Then Michael kept going: he helped her open a bank account so she could cash the check, introduced her to a friend who sold her a car, and connected her with a CPA to catch up on her taxes.</p></li>
+      <li data-day="Day 1"><h3>The drive-by</h3><p>The house had clearly been sitting empty for years. As it turned out, it had been vacant since Hurricane Katrina: nearly two decades of storm damage, neglect, and an owner nobody had seen. A property left untouched for that long almost always means there&rsquo;s a problem nobody has solved, so Michael decided to find out what it was.</p></li>
+      <li data-day="Search"><h3>Finding the heir</h3><p>The owner had passed away, and her only daughter, estranged from her, didn&rsquo;t even know her mother had died. With no seller to call, Michael worked the neighborhood instead. He talked to neighbors, reached out to family friends, and followed every lead he could find until the trail finally led to her.</p></li>
+      <li data-day="Deal"><h3>The succession</h3><p>The daughter had inherited a house she never knew was hers. Michael guided her through the succession process, kept the closing on track, and helped her walk away with more than $100,000. The contract was then assigned to a buyer ready to take on the $150,000 renovation.</p></li>
+      <li data-day="Closed"><h3>Closed, then the extra mile</h3><p>Days after finding her, the deal closed with a <strong>$41,000</strong> assignment fee. But Michael didn&rsquo;t stop there. He helped her open a bank account so she could deposit the check, introduced her to a trusted friend who sold her a car, and connected her with a CPA to help her get caught up on her taxes.</p></li>
     </ol>
 
+    <div class="aftermile reveal">
+      <div class="cap">After the closing</div>
+      <div class="chips"><span>Bank account opened</span><span>A car in the driveway</span><span>Taxes caught up</span></div>
+    </div>
+
     <blockquote class="reveal golden">
-      <span class="grule">Michael&rsquo;s golden rule</span>
-      &ldquo;Don&rsquo;t be afraid to go the extra mile when helping solve problems. Vacant properties, especially ones that have been vacant for two decades, usually mean there are big problems.&rdquo;
-      <cite>Michael Breedlove &middot; Real estate investor &middot; Metairie, LA</cite>
+            &ldquo;Don&rsquo;t be afraid to go the extra mile when helping solve problems. Vacant properties, especially ones that have been vacant for two decades, usually mean there are big problems.&rdquo;
+      <cite>Michael</cite>
     </blockquote>
   </div>
 </section>
@@ -400,13 +410,12 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">Behind the scenes</p>
-    <h2>What REsimpli handles on a deal like this</h2>
-    <p class="lead">The numbers on this page come straight from the deal record in REsimpli. On a deal this tangled, a 20-year vacancy, an heir search, a succession, here&rsquo;s what the platform keeps in order:</p>
+    <h2>How REsimpli fit into this deal</h2>
+    <p class="lead">This deal was won on the street: the search, the succession, and the extra mile were all Michael. REsimpli&rsquo;s role was to keep the deal itself moving:</p>
     <div class="feat reveal">
-      <div><div class="ft">CRM &amp; lead management</div><p class="fd">Every lead lives on one screen: status, notes, tasks, and documents from first contact to close.</p></div>
-      <div><div class="ft">Dialer, calling &amp; SMS</div><p class="fd">Calls and texts run through the platform and log themselves against the lead automatically.</p></div>
-      <div><div class="ft">Notes, tasks &amp; offer history</div><p class="fd">Long, messy timelines stay organized: every conversation and next step in one place.</p></div>
-      <div><div class="ft">AI call summaries</div><p class="fd">Recorded calls come with AI summaries, so catching up on a complicated file takes seconds.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Lead pipeline</div><p class="fd">The lead moved from New Leads straight to Under Contract, then to Sold. No wasted stages on a deal that moved fast.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Offers</div><p class="fd">The offer was generated inside the platform, logged the moment it was created.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Transaction pipeline</div><p class="fd">From New Contract &rarr; Accepted Offer &rarr; Clear to Close, the closing stayed tracked to the wire.</p></div>
       
       
       
