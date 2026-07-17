@@ -135,7 +135,7 @@
   .eyebrow::after{background:linear-gradient(90deg,var(--neon),transparent)}
 
   /* big title + subtitle */
-  h1.title{font-size:clamp(44px,8vw,64px);margin-bottom:2px}
+  h1.title{font-size:clamp(56px,10vw,84px);margin-bottom:26px;letter-spacing:-1px}
   .subtitle{font-weight:700;font-size:clamp(26px,4.5vw,38px);color:var(--white);margin-bottom:22px}
 
   /* CTA card */
@@ -145,6 +145,12 @@
   .cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center}
   .cta-card .cta-caption{margin-top:0}
   .btn-ghost{display:inline-block;margin:0 auto}
+
+
+  .cta-timer-lg{gap:10px}
+  .cta-timer-lg .t-unit{width:72px;padding:12px 0;border-radius:12px}
+  .cta-timer-lg .t-num{font-size:30px}
+  .cta-timer-lg .t-lab{font-size:10.5px}
 
   @media (max-width:560px){
     .modal-inner{padding:34px 26px 30px}
@@ -179,26 +185,22 @@
       <p class="eyebrow">INTRODUCING...</p>
 
       <h1 id="popupTitle" class="title">REsimpli <span class="accent">6.0</span></h1>
-      <p class="subtitle">is here.</p>
-
+      
       <div class="features">
         <span class="feature">Triple-Line Dialer</span>
-        <span class="feature">Unlimited Calls &amp; SMS</span>
-        <span class="feature">Unlimited Pipeline</span>
+        <span class="feature">Autonomous AI</span>
+        <span class="feature">Unlimited Pipelines</span>
       </div>
 
 
 <div class="cta-card">
-        <div class="cta-row">
-          <a class="btn-primary" href="[TRAINING_LINK]">Join Free Training <span aria-hidden="true">→</span></a>
-          <div class="cta-timer" aria-live="polite" title="Offer ends Aug 31">
-            <div class="t-unit"><span class="t-num" id="dd">--</span><span class="t-lab">Days</span></div>
-            <div class="t-unit"><span class="t-num" id="hh">--</span><span class="t-lab">Hrs</span></div>
-            <div class="t-unit"><span class="t-num" id="mm">--</span><span class="t-lab">Min</span></div>
-            <div class="t-unit"><span class="t-num" id="ss">--</span><span class="t-lab">Sec</span></div>
-          </div>
+        <div class="cta-timer cta-timer-lg" aria-live="polite" title="Offer ends Aug 31">
+          <div class="t-unit"><span class="t-num" id="dd">--</span><span class="t-lab">Days</span></div>
+          <div class="t-unit"><span class="t-num" id="hh">--</span><span class="t-lab">Hrs</span></div>
+          <div class="t-unit"><span class="t-num" id="mm">--</span><span class="t-lab">Min</span></div>
+          <div class="t-unit"><span class="t-num" id="ss">--</span><span class="t-lab">Sec</span></div>
         </div>
-        <p class="cta-caption">New AI Agents are live. Get set up before Aug 31 ⏳</p>
+        <a class="btn-primary" href="[TRAINING_LINK]">Join Free Training <span aria-hidden="true">→</span></a>
       </div>
       <button class="btn-ghost" onclick="dismissPopup()">Remind me later</button>
     </div>
