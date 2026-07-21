@@ -26,6 +26,7 @@
     --teal-dark:#00595f;
     --ink:#0e2421;
     --ink-soft:#3b4f4c;
+    --muted:#6b7d7a;
     --paper:#ffffff;
     --card:#ffffff;
     --line:#dbe6e4;
@@ -67,7 +68,7 @@
   .navactions{display:flex;align-items:center;gap:18px;}
   .navlogin{font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;}
   .navlogin:hover{color:var(--teal);}
-  .topcta{font-family:var(--sans);font-size:14px;font-weight:700;background:var(--teal);color:#fff;padding:10px 20px;border-radius:8px;white-space:nowrap;transition:background .15s;text-decoration:none;}
+  .topcta{font-family:'Gilroy','Poppins',sans-serif;font-size:14px;font-weight:700;background:var(--teal);color:#fff;padding:10px 20px;border-radius:8px;white-space:nowrap;transition:background .15s;text-decoration:none;}
   .topcta:hover{background:var(--teal-dark);}
 
   /* hero */
@@ -258,17 +259,17 @@
   .pace .row i{flex:1;height:9px;border-radius:3px;background:var(--gold);}
 
   /* evan story-flow additions */
-  .payoff{text-align:center;margin:46px 0 0;}
+  .payoff{text-align:center;margin:0;}
   .payoff .cap{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);font-weight:700;}
   .payoff .big{font-size:clamp(52px,9vw,76px);font-weight:800;color:var(--gold);letter-spacing:-2px;line-height:1.05;margin:10px 0 6px;}
   .payoff .sub{font-size:17px;color:var(--ink);font-weight:600;}
   .pchips{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:16px;}
   .pchips span{font-size:12.5px;font-weight:700;letter-spacing:.4px;color:var(--teal);background:#eef7f7;border:1px solid #cfe7e8;border-radius:999px;padding:8px 16px;}
-  .bmath{max-width:480px;margin:26px auto 0;background:var(--dark);border-radius:14px;padding:22px 26px;color:#fff;}
-  .bmath .cap{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8fd0d4;font-weight:700;margin-bottom:12px;}
-  .bmath .row{display:flex;justify-content:space-between;gap:16px;font-size:14.5px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+  .bmath{max-width:480px;margin:26px auto 0;background:#f6f4ee;border:1px solid #e5e0d2;border-radius:14px;padding:22px 26px;color:var(--ink);}
+  .bmath .cap{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;}
+  .bmath .row{display:flex;justify-content:space-between;gap:16px;font-size:14.5px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.1);}
   .bmath .row:last-of-type{border-bottom:none;}
-  .bmath .note{font-size:12.5px;color:#a9c4c1;margin-top:10px;line-height:1.5;}
+  .bmath .note{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.5;}
   .races{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
   .races span{font-size:14px;font-weight:700;color:var(--ink);background:var(--gold-soft);border:1px solid #ecd9a8;border-radius:999px;padding:10px 20px;}
   .glabel{font-family:var(--sans);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin:28px 0 0;}
@@ -301,16 +302,54 @@
   <div class="wrap">
     <span class="badge"><span class="dot"></span> Deal of the Week &middot; Built for speed</span>
     <h1>One burned building made him <em>$10k a day</em> for twenty-one days.</h1>
-    <p class="lead" style="margin-top:20px;">An out-of-town seller landed in Fresno for one day. Evan reached him within 60 seconds and locked up a fire-damaged multifamily before anyone else could. Then everything started going wrong. The deal almost died twice, but somehow it still closed for $210,000.</p>
-
+    <p class="lead" style="margin-top:20px;">Evan raced to lock down a fire-damaged multifamily from an out-of-town seller. Establishing contact in just 60 seconds and arranging an appointment within the hour, he got the property under contract. Right then, things started to go wrong. A mortgage miscalculation and the buyer&rsquo;s lender&rsquo;s refusal to fund the assignment fee nearly killed the deal. Evan, however, closed the deal 21 days later, with $210,000 in hand.</p>
 
     <!-- PROPERTY PHOTO -->
     <figure class="property reveal">
       <img src="https://resimpli--v2-public.s3.us-east-2.amazonaws.com/6954aaddf476f4eb09413b4b/601cf3c070419f19b74a6882/1783349563166Screenshot%202026-07-06%20at%207.52.31%E2%80%AFAM.png" alt="The fire-damaged multi-family property in Fresno, California" width="920">
       <figcaption><span class="tag">The property</span><span>Fresno, CA &middot; Multi-family &middot; 16 bed / 8 bath</span></figcaption>
     </figure>
-    <p class="lead" style="margin-top:20px;">Here&rsquo;s what went wrong, what saved it, and the decision most wholesalers would never make.</p>
 
+    
+  </div>
+</header>
+
+<!-- STORY / TIMELINE -->
+<section id="story">
+  <div class="wrap">
+    <p class="eyebrow">The story</p>
+    <h2>Sixty seconds to answer. Twenty-one days to $210,000.</h2>
+    <p class="lead">Here&rsquo;s how the deal played out:</p>
+
+    <ol class="timeline reveal">
+      <li data-day="Day 1"><h3>The seller only had one day</h3><p>He lived out of the area and was in Fresno for the day. When the lead came in, Speed to Lead put Evan&rsquo;s team in contact within 60 seconds and out at the appointment within 60 minutes. A fire-damaged multifamily across two separate APNs went under contract.</p></li>
+      <li data-day="Snag 1"><h3>The payoff almost blows up the deal</h3><p>The mortgage company miscalculated the seller&rsquo;s payoff, with the seller&rsquo;s insurance company already in the mix on the fire damage. The math the whole deal was built on no longer worked, and the deal almost collapsed.</p></li>
+      <li data-day="Snag 2"><h3>The buyer&rsquo;s lender won&rsquo;t fund the fee</h3><p>Evan&rsquo;s team steadied the payoff, and then the second blow landed: the buyer&rsquo;s lender refused to fund the $210,000 assignment fee. This is where most wholesale deals quietly die. Evan had a decision to make.</p></li>
+      <li data-day="The call"><h3>The conversation that saved the deal</h3><p>He didn&rsquo;t hide how much he was making. He showed the buyer the entire assignment fee, then helped coordinate a cash-out refinance on the buyer&rsquo;s other rentals so the purchase could close in cash. Because he was transparent, the fee survived the conversation.</p></li>
+    </ol>
+
+    
+
+    
+  </div>
+</section>
+
+<!-- PAYOFF -->
+<section>
+  <div class="wrap">
+    <div class="payoff reveal">
+      <p class="cap">Twenty-one days later&hellip;</p>
+      <div class="big">$210,000</div>
+      <p class="sub">His biggest assignment fee ever. And one of the easiest deals to lose.</p>
+      <div class="pchips"><span>$10,000 earned per day</span><span>Two major obstacles overcome</span><span>Closed in 21 days</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAL LEDGER -->
+<section>
+  <div class="wrap" style="max-width:660px;">
+    <p class="eyebrow">Numbers on this deal</p>
     <!-- SIGNATURE: DEAL LEDGER -->
     <div class="ledger reveal">
       <div class="ledger-head">
@@ -344,12 +383,9 @@
         </div>
       </div>
     </div>
-    <div style="margin-top:28px;">
-      <a class="btn" href="#story">Read how it closed &darr;</a>
-      <div class="micro">Lead source &middot; Inbound + cold calling &nbsp;|&nbsp; 21 days lead-to-close</div>
-    </div>
+    <div class="micro">First contact &middot; 60 seconds &nbsp;|&nbsp; 21 days lead-to-close</div>
   </div>
-</header>
+</section>
 
 <!-- SNAPSHOT -->
 <section>
@@ -359,9 +395,9 @@
     <p class="lead">The kind of numbers you&rsquo;d log in your CRM after the wire clears.</p>
     <div class="snap reveal">
       <div><div class="k">Market</div><div class="v">Fresno, CA</div></div>
-      <div><div class="k">Lead source</div><div class="v">Inbound + cold calling</div></div>
-      <div><div class="k">Seller situation</div><div class="v">Fire-damaged property</div></div>
-      <div><div class="k">Property</div><div class="v">Multi-family &middot; 16 bed / 8 bath</div></div>
+      <div><div class="k">Lead response</div><div class="v">60 seconds via Speed to Lead</div></div>
+      <div><div class="k">Seller situation</div><div class="v">Out-of-area owner &middot; In town for the day</div></div>
+      <div><div class="k">Property</div><div class="v">Multi-family (2 parcels) &middot; 16 bed / 8 bath</div></div>
       <div><div class="k">Purchase</div><div class="v">$500,000</div></div>
       <div><div class="k">Rehab est.</div><div class="v">$400,000</div></div>
       <div><div class="k">ARV</div><div class="v">$1,400,000</div></div>
@@ -370,38 +406,20 @@
   </div>
 </section>
 
-<!-- STORY / TIMELINE -->
-<section id="story">
-  <div class="wrap">
-    <p class="eyebrow">The story</p>
-    <h2>Sixty seconds to answer. Twenty-one days to $210,000.</h2>
-    <p class="lead">You already know the fee. Here&rsquo;s how the deal nearly died twice, and what Evan did instead of panicking.</p>
-
-    <ol class="timeline reveal">
-      <li data-day="Day 1"><h3>The seller only had one day</h3><p>He lived out of the area and was in Fresno for a single day. The lead came in, Evan&rsquo;s team made contact within 60 seconds, and he was sitting at the appointment within the hour. By the end of it, a fire-damaged multifamily across two parcels was under contract, and everything looked clean.</p></li>
-      <li data-day="Snag 1"><h3>Escrow says the numbers don&rsquo;t work</h3><p>The mortgage company miscalculated the seller&rsquo;s payoff, with the insurance company already in the mix on the fire damage. The math the whole deal was built on suddenly wasn&rsquo;t the math. It nearly came apart right there.</p></li>
-      <li data-day="Snag 2"><h3>The buyer can&rsquo;t pay</h3><p>Evan&rsquo;s team steadied the payoff, and then the second blow landed: the buyer&rsquo;s lender refused to fund the $210,000 assignment fee. This is where most wholesale deals quietly die. Evan had a decision to make, and it&rsquo;s one most wholesalers would never make.</p></li>
-      <li data-day="The call"><h3>The conversation that saved the deal</h3><p>He showed the buyer the entire assignment fee. All of it. Then he helped coordinate a cash-out refinance on the buyer&rsquo;s other rentals so the purchase could close in cash. The numbers still worked for the buyer, so the fee survived the conversation.</p></li>
-    </ol>
-
-    <div class="payoff reveal">
-      <p class="cap">Twenty-one days later&hellip;</p>
-      <div class="big">$210,000</div>
-      <p class="sub">His biggest assignment fee ever. And one of the easiest deals to lose.</p>
-      <div class="pchips"><span>$10,000 earned per day</span><span>Two major obstacles overcome</span><span>Closed in 21 days</span></div>
-    </div>
-
+<!-- BUYER'S MATH + PULL QUOTE -->
+<section>
+  <div class="wrap" style="max-width:820px;">
     <div class="bmath reveal">
       <div class="cap">Only on this page &middot; the buyer&rsquo;s math</div>
       <div class="row"><span>Buyer&rsquo;s all-in (buy + rehab + fee)</span><b>$1,110,000</b></div>
       <div class="row"><span>After-repair value</span><b>$1,400,000</b></div>
       <div class="row"><span>Buyer&rsquo;s remaining margin</span><b>&asymp;$290,000</b></div>
-      <div class="note">This is why a fully disclosed $210,000 fee survived scrutiny: even with the fee on the table, the deal still worked for the buyer.</div>
+      <div class="note">This is why a fully disclosed $210,000 fee survived scrutiny: even with the fee on the table, the numbers still worked for the buyer, before his holding and transaction costs.</div>
     </div>
 
     <blockquote class="reveal golden">
             &ldquo;Be transparent with your buyers. If the numbers work for them, then they shouldn&rsquo;t have a problem with your fee.&rdquo;
-      <cite>Evan</cite>
+      <cite>Evan Rocha</cite>
     </blockquote>
   </div>
 </section>
@@ -417,13 +435,11 @@
       <div class="stats">
         <div><div class="n">$210k</div><div class="l">this deal</div></div>
         <div><div class="n">21 days</div><div class="l">lead to close</div></div>
-        <div><div class="n">$10k</div><div class="l">per day</div></div>
+        <div><div class="n">60 sec</div><div class="l">to first contact</div></div>
       </div>
     </div>
   </div>
 </section>
-
-
 
 <!-- WHY IT CLOSED -->
 <section>
@@ -441,7 +457,7 @@
     <p class="eyebrow">Take it to your next deal</p>
     <h2>What to steal from this one</h2>
     <ul class="lessons reveal">
-      <li><span class="num">01</span><div><strong>Speed is a strategy.</strong> An out-of-town seller with one day in town doesn&rsquo;t wait for callbacks. Sixty seconds to contact is what put Evan in the room before anyone else.</div></li>
+      <li><span class="num">01</span><div><strong>Speed is a strategy.</strong> The window on this lead was hours, not weeks. Sixty seconds to contact and sixty minutes to the appointment is what put Evan in the room before anyone else.</div></li>
         <li><span class="num">02</span><div><strong>Let the math pick the exit.</strong> Fire-damage rehabs mean hairy paperwork and months before profit. Evan ran the opportunity cost and took the faster, cleaner assignment, then reinvested.</div></li>
         <li><span class="num">03</span><div><strong>Transparency survives scrutiny.</strong> Evan disclosed the full $210,000 fee to his buyer. The numbers worked, so the deal closed anyway, with the relationship intact for the next one.</div></li>
     </ul>
@@ -453,21 +469,21 @@
   <div class="wrap">
     <p class="eyebrow">Behind the scenes</p>
     <h2>How REsimpli kept this deal on track</h2>
-    <p class="lead">Every item below reflects how this deal actually ran inside REsimpli: the exact features Evan and his partner Brycen used, from the 60-second first contact to the e-signed assignment.</p>
+    <p class="lead">Every item below reflects how this deal actually ran inside REsimpli: from the 60-second first contact to the e-signed documents.</p>
     <p class="glabel">Before the appointment</p>
     <div class="feat reveal">
-      <div><div class="tag">Used on this deal</div><div class="ft">Speed to lead</div><p class="fd">The inbound lead triggered instant contact: seller reached in 60 seconds, appointment within the hour.</p></div>
-      <div><div class="tag">Used on this deal</div><div class="ft">Cold Calling Dialer</div><p class="fd">The second parcel&rsquo;s lead was added straight from REsimpli&rsquo;s built-in Cold Calling Dialer.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Speed to Lead</div><p class="fd">The lead triggered instant contact: seller reached in 60 seconds and the team out at the appointment within 60 minutes, while he was still in town.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Offers &amp; contracts</div><p class="fd">The offer was generated in the system and the signed purchase contract uploaded the same evening the seller said yes.</p></div>
     </div>
     <p class="glabel">During negotiations</p>
     <div class="feat reveal">
-      <div><div class="tag">Used on this deal</div><div class="ft">Notes &amp; offers</div><p class="fd">The payoff snag, a missing deadbolt key, and the $210k spread all lived in notes, with the offer generated in the system.</p></div>
-      <div><div class="tag">Used on this deal</div><div class="ft">Call recording &amp; tracking</div><p class="fd">Call audio, durations, and voicemails logged automatically on the lead, with transcripts a click away.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Team collaboration</div><p class="fd">Evan handled offers and statuses while his teammate Brycen uploaded photos, opened buyer escrow, and tracked down access issues, all on the same deal record.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Notes on the lead</div><p class="fd">The payoff snag and the $210k spread lived in notes where the whole team could see them. Nothing was left to memory when escrow got messy.</p></div>
     </div>
     <p class="glabel">Closing the deal</p>
     <div class="feat reveal">
-      <div><div class="tag">Used on this deal</div><div class="ft">Transaction pipeline</div><p class="fd">After going under contract, the deal moved through New Contract &rarr; Marketing &rarr; Assigned.</p></div>
-      <div><div class="tag">Used on this deal</div><div class="ft">Files, photos &amp; e-sign</div><p class="fd">A photo folder with a public share link, contracts stored on the deal, and signatures collected natively. No third-party tools.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Transaction pipeline</div><p class="fd">After going under contract, the deal moved through Under Contract &rarr; Marketing &rarr; Assigned &rarr; Sold, so everyone knew where it stood.</p></div>
+      <div><div class="tag">Used on this deal</div><div class="ft">Files, photos &amp; e-sign</div><p class="fd">Property photos went up on day one, contracts stayed on the deal, and documents went out for e-signature from the same system.</p></div>
     </div>
   </div>
 </section>
@@ -494,8 +510,8 @@
   <div class="wrap">
     <div class="convert reveal">
       <p class="eyebrow" style="color:#bdeef0;">Run your deals the same way</p>
-      <h2>That&rsquo;s the system Evan used</h2>
-      <p style="max-width:520px;margin:14px auto 0;">The seller was only in town for one day. The first call happened within 60 seconds. Every conversation, offer, and contract after that stayed organized in one place. Try it free for 30 days.</p>
+      <h2>REsimpli is the system Evan used</h2>
+      <p style="max-width:520px;margin:14px auto 0;">The seller was only in town for the day. The first contact happened within 60 seconds. Every offer, contract, and note after that stayed organized in REsimpli. Try it free for 30 days.</p>
       <ul>
         <li>30-day free trial, so you can see it on your own leads first</li>
         <li>No developers and no complex setup, you can be up and running in 2 minutes</li>
@@ -514,7 +530,7 @@
     <p class="eyebrow">Before you ask</p>
     <h2>Straight answers</h2>
     <div style="margin-top:26px;">
-      <details><summary>Do I need REsimpli to find deals?</summary><div class="a">No. REsimpli works the leads you already have, from any source. This deal came in as an inbound lead answered within 60 seconds, with the second parcel worked through the built-in Cold Calling Dialer.</div></details>
+      <details><summary>Do I need REsimpli to find deals?</summary><div class="a">No. REsimpli works the leads you already have, from any source. This deal&rsquo;s lead was answered within 60 seconds through Speed to Lead, and the seller was at the appointment within the hour.</div></details>
       <details><summary>Is REsimpli only for wholesalers?</summary><div class="a">No. Wholesalers, house flippers, BRRRR investors, buy-and-hold landlords, and virtual investors all run on it. Evan wholesaled this one, but the same platform runs wholetails, flips, rentals, and full portfolios.</div></details>
       <details><summary>Can it really replace multiple tools?</summary><div class="a">That&rsquo;s the whole point. One login covers your CRM, dialer, calling and SMS, webform lead capture, and AI call summaries: the pieces most investors stitch together from separate tools. One subscription, one bill.</div></details>
       <details><summary>How long does setup take?</summary><div class="a">About 2 minutes. Sign up, connect a phone number, and start working your leads. No developers, and no one to hire to configure it.</div></details>
