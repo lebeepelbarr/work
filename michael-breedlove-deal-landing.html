@@ -257,6 +257,23 @@
   .aftermile .cap{font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;}
   .chips{display:flex;flex-wrap:wrap;gap:10px;}
   .chips span{font-size:13.5px;font-weight:600;color:var(--teal);background:#eef7f7;border:1px solid #cfe7e8;border-radius:999px;padding:9px 18px;}
+
+  /* michael story-flow additions */
+  .payoff{text-align:center;margin:46px 0 0;}
+  .payoff .cap{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .payoff .big{font-size:clamp(52px,9vw,76px);font-weight:800;color:var(--gold);letter-spacing:-2px;line-height:1.05;margin:10px 0 6px;}
+  .payoff .sub{font-size:17px;color:var(--ink);font-weight:600;}
+  .pchips{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:16px;}
+  .pchips span{font-size:12.5px;font-weight:700;letter-spacing:.4px;color:var(--teal);background:#eef7f7;border:1px solid #cfe7e8;border-radius:999px;padding:8px 16px;}
+  .bmath{max-width:480px;margin:26px auto 0;background:#f6f4ee;border:1px solid #e5e0d2;border-radius:14px;padding:22px 26px;color:var(--ink);}
+  .bmath .cap{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;}
+  .bmath .row{display:flex;justify-content:space-between;gap:16px;font-size:14.5px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.1);}
+  .bmath .row:last-of-type{border-bottom:none;}
+  .bmath .note{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.5;}
+  .races{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
+  .races span{font-size:14px;font-weight:700;color:var(--ink);background:var(--gold-soft);border:1px solid #ecd9a8;border-radius:999px;padding:10px 20px;}
+  blockquote.golden{margin-top:26px;}
+  .aftermile{margin-top:30px;}
 </style>
 </head>
 <body>
@@ -285,9 +302,8 @@
   <div class="wrap">
     <span class="badge"><span class="dot"></span> Deal of the Week &middot; The human side of investing</span>
     <h1>This house had no seller. He made <em>$41,000</em> finding one.</h1>
-    <p class="lead" style="margin-top:20px;">Michael spotted a house in Metairie that had sat vacant since Hurricane Katrina. The owner had passed away, and her only daughter, estranged for years, never knew. He tracked her down through neighbors and family friends, walked her through the succession process, and paid her over $100,000 for a property she didn&rsquo;t know she had inherited. Twenty-one days after the lead, the deal closed.</p>
-    <p class="lead" style="margin-top:14px;">Here&rsquo;s the full breakdown: the search, the numbers, and what Michael did after the closing that no spreadsheet will ever show.</p>
-
+    <p class="lead" style="margin-top:20px;">Michael spots a house in Metairie that has sat empty since Hurricane Katrina. The owner has passed away, and there is nobody left to sell it. Then Michael finds someone who has no idea the property even exists. The deal pays her over $100,000, and pays him $41,000.</p>
+    <p class="lead" style="margin-top:14px;">Here&rsquo;s how he found her&hellip; and what he did after the closing:</p>
 
     <!-- PROPERTY PHOTO -->
     <figure class="property reveal">
@@ -295,6 +311,39 @@
       <figcaption><span class="tag">The actual property</span><span>Metairie, LA &middot; SFR &middot; 3 bed / 2 bath</span></figcaption>
     </figure>
 
+    
+  </div>
+</header>
+
+
+
+<!-- STORY / TIMELINE -->
+<section id="story">
+  <div class="wrap">
+    <p class="eyebrow">The story</p>
+    <h2>A vacant house. A missing heir. A closing that changed a life.</h2>
+    <p class="lead">You already know the numbers, but they&rsquo;re the smallest part of this story. Here&rsquo;s what actually happened.</p>
+
+    <ol class="timeline reveal">
+      <li data-day="Day 1"><h3>The drive-by</h3><p>The house had clearly been sitting empty for years. As it turned out, it had been vacant since Hurricane Katrina: nearly two decades of storm damage, neglect, and an owner nobody had seen. A property left untouched for that long almost always means there&rsquo;s a problem nobody has solved, so Michael decided to find out what it was.</p></li>
+      <li data-day="Search"><h3>Finding the heir</h3><p>The owner had passed away, and her only daughter, estranged from her, didn&rsquo;t even know her mother had died. With no seller to call, Michael worked the neighborhood instead. He talked to neighbors, reached out to family friends, and followed every lead he could find until the trail finally led to her.</p></li>
+      <li data-day="Deal"><h3>The succession</h3><p>The daughter had inherited a house she never knew was hers. Michael guided her through the succession process, kept the closing on track, and helped her walk away with more than $100,000. The contract was then assigned to a buyer ready to take on the $150,000 renovation.</p></li>
+      <li data-day="Closed"><h3>Closed, then the extra mile</h3><p>Days after finding her, the deal closed with a <strong>$41,000</strong> assignment fee. But Michael didn&rsquo;t stop there. He helped her open a bank account so she could deposit the check, introduced her to a trusted friend who sold her a car, and connected her with a CPA to help her get caught up on her taxes.</p></li>
+    </ol>
+
+    
+
+    
+
+    
+
+    
+  </div>
+</section>
+
+<!-- DEAL LEDGER -->
+<section>
+  <div class="wrap" style="max-width:660px;">
     <!-- SIGNATURE: DEAL LEDGER -->
     <div class="ledger reveal">
       <div class="ledger-head">
@@ -324,12 +373,9 @@
         </div>
       </div>
     </div>
-    <div style="margin-top:28px;">
-      <a class="btn" href="#story">Read how it closed &darr;</a>
-      <div class="micro">Lead source &middot; Driving for dollars &nbsp;|&nbsp; 21 days lead-to-close</div>
-    </div>
+    <div class="micro">Lead source &middot; Driving for dollars &nbsp;|&nbsp; 21 days lead-to-close</div>
   </div>
-</header>
+</section>
 
 <!-- SNAPSHOT -->
 <section>
@@ -350,25 +396,34 @@
   </div>
 </section>
 
-<!-- STORY / TIMELINE -->
-<section id="story">
+<!-- PAYOFF -->
+<section>
   <div class="wrap">
-    <p class="eyebrow">The story</p>
-    <h2>A vacant house. A missing heir. A closing that changed a life.</h2>
-    <p class="lead">You already know the numbers, but they&rsquo;re the smallest part of this story. Here&rsquo;s what actually happened.</p>
-
-    <ol class="timeline reveal">
-      <li data-day="Day 1"><h3>The drive-by</h3><p>The house had clearly been sitting empty for years. As it turned out, it had been vacant since Hurricane Katrina: nearly two decades of storm damage, neglect, and an owner nobody had seen. A property left untouched for that long almost always means there&rsquo;s a problem nobody has solved, so Michael decided to find out what it was.</p></li>
-      <li data-day="Search"><h3>Finding the heir</h3><p>The owner had passed away, and her only daughter, estranged from her, didn&rsquo;t even know her mother had died. With no seller to call, Michael worked the neighborhood instead. He talked to neighbors, reached out to family friends, and followed every lead he could find until the trail finally led to her.</p></li>
-      <li data-day="Deal"><h3>The succession</h3><p>The daughter had inherited a house she never knew was hers. Michael guided her through the succession process, kept the closing on track, and helped her walk away with more than $100,000. The contract was then assigned to a buyer ready to take on the $150,000 renovation.</p></li>
-      <li data-day="Closed"><h3>Closed, then the extra mile</h3><p>Days after finding her, the deal closed with a <strong>$41,000</strong> assignment fee. But Michael didn&rsquo;t stop there. He helped her open a bank account so she could deposit the check, introduced her to a trusted friend who sold her a car, and connected her with a CPA to help her get caught up on her taxes.</p></li>
-    </ol>
+    <div class="payoff reveal">
+      <p class="cap">At the closing table&hellip;</p>
+      <div class="big">$41,000</div>
+      <p class="sub">Michael&rsquo;s assignment fee. And a life changed on the other side of the table.</p>
+      <div class="pchips"><span>$100k+ paid to the heir</span><span>A 20-year problem solved</span><span>21 days on the form, start to close</span></div>
+    </div>
 
     <div class="aftermile reveal">
       <div class="cap">After the closing</div>
       <div class="chips"><span>Bank account opened</span><span>A car in the driveway</span><span>Taxes caught up</span></div>
     </div>
 
+    <div class="bmath reveal">
+      <div class="cap">Only on this page &middot; the buyer&rsquo;s math</div>
+      <div class="row"><span>Buyer&rsquo;s all-in (buy + rehab + fee)</span><b>$319,000</b></div>
+      <div class="row"><span>After-repair value</span><b>$399,000</b></div>
+      <div class="row"><span>Buyer&rsquo;s remaining margin</span><b>&asymp;$80,000</b></div>
+      <div class="note">A $150,000 renovation only pencils when the entry is right. Solving the ownership problem is what created the entry.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section>
+  <div class="wrap" style="max-width:820px;">
     <blockquote class="reveal golden">
             &ldquo;Don&rsquo;t be afraid to go the extra mile when helping solve problems. Vacant properties, especially ones that have been vacant for two decades, usually mean there are big problems.&rdquo;
       <cite>Michael</cite>
@@ -376,18 +431,6 @@
   </div>
 </section>
 
-<!-- LESSONS -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow">Take it to your next deal</p>
-    <h2>What to steal from this one</h2>
-    <ul class="lessons reveal">
-      <li><span class="num">01</span><div><strong>A 20-year vacancy is a 20-year-old problem.</strong> Nobody had solved the title, the succession, or the family estrangement. The investor willing to untangle the problem is the one who earns the deal.</div></li>
-        <li><span class="num">02</span><div><strong>Some doors only open in person.</strong> There was no seller to call. Michael found the heir by talking to neighbors and family friends, one conversation at a time.</div></li>
-        <li><span class="num">03</span><div><strong>The deal ends at closing. The reputation doesn&rsquo;t.</strong> The bank account, the car, the CPA: none of it was required, and all of it is why communities trust investors like Michael with the next one.</div></li>
-    </ul>
-  </div>
-</section>
 
 <!-- SPOTLIGHT -->
 <section>
@@ -403,6 +446,29 @@
         <div><div class="n">$100k+</div><div class="l">paid to the heir</div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- WHY IT CLOSED -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The real reason</p>
+    <h2>Why this deal actually closed</h2>
+    <p class="lead">It wasn&rsquo;t a pocket listing, and it wasn&rsquo;t a lucky call. It closed because Michael solved three problems nobody else would touch:</p>
+    <div class="races reveal"><span>A 20-year vacancy</span><span>A missing heir</span><span>A succession no one had started</span></div>
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Take it to your next deal</p>
+    <h2>What to steal from this one</h2>
+    <ul class="lessons reveal">
+      <li><span class="num">01</span><div><strong>A 20-year vacancy is a 20-year-old problem.</strong> Nobody had solved the title, the succession, or the family estrangement. The investor willing to untangle the problem is the one who earns the deal.</div></li>
+        <li><span class="num">02</span><div><strong>Some doors only open in person.</strong> There was no seller to call. Michael found the heir by talking to neighbors and family friends, one conversation at a time.</div></li>
+        <li><span class="num">03</span><div><strong>The deal ends at closing. The reputation doesn&rsquo;t.</strong> The bank account, the car, the CPA: none of it was required, and all of it is why communities trust investors like Michael with the next one.</div></li>
+    </ul>
   </div>
 </section>
 
@@ -446,8 +512,8 @@
   <div class="wrap">
     <div class="convert reveal">
       <p class="eyebrow" style="color:#bdeef0;">Run your deals the same way</p>
-      <h2>Try the system Michael closed this on</h2>
-      <p style="max-width:520px;margin:14px auto 0;">One login instead of five tools. Capture leads, log every call, track every task, and keep a complicated deal moving from first note to wire.</p>
+      <h2>That&rsquo;s the system Michael used</h2>
+      <p style="max-width:520px;margin:14px auto 0;">There was no seller to call and no file to inherit. Michael built the deal record from the first conversation, and every note, offer, and milestone stayed in one place until Clear to Close. Try it free for 30 days.</p>
       <ul>
         <li>30-day free trial, so you can see it on your own leads first</li>
         <li>No developers and no complex setup, you can be up and running in 2 minutes</li>
