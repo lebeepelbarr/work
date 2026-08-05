@@ -173,9 +173,9 @@
 
   /* feature grid */
   .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px;}
-  .feat div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;}
-  .feat .ft{font-family:var(--sans);font-weight:600;font-size:16px;margin-bottom:6px;}
-  .feat .fd{font-size:14.5px;color:var(--ink-soft);margin:0;}
+  .feat div.card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;padding:0;box-shadow:0 1px 0 rgba(14,36,33,.03);}
+  .feat .ft{font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.2px;color:var(--teal);background:#f0f7f7;border-bottom:1px solid var(--line);padding:12px 20px;margin:0;}
+  .feat .fd{font-size:14.5px;color:var(--ink-soft);margin:0;padding:14px 20px 18px;}
   .feat .tag{font-family:var(--sans);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);}
 
   /* proof */
@@ -296,7 +296,7 @@
   <div class="wrap">
     <span class="badge"><span class="dot"></span> Deal of the Week &middot; Real investor, real numbers</span>
     <h1>From one direct mail lead to a <em>$70K wholesale</em>: Cameron&rsquo;s five-rental deal</h1>
-    <p class="lead" style="margin:20px 0 0;">A tired landlord in Sanford, FL answered a direct mail piece and put his entire rental portfolio on the table. A tenant communication breakdown nearly derailed the closing, but 45 days later, Cameron assigned the whole package for a $70,000 fee. Here&rsquo;s the full story of what went wrong, what kept the deal alive, and how it finally closed.</p>
+    <p class="lead" style="margin:20px 0 0;">A tired landlord in Sanford, FL answered one mail piece and put five rentals on the table. A communication breakdown nearly derailed the closing, but 45 days later, Cameron assigned the whole package for a $70,000 fee. Here&rsquo;s how it went down.</p>
 
     <!-- PROPERTY PHOTO -->
     <figure class="property reveal">
@@ -462,10 +462,10 @@
     <h2>How REsimpli kept this deal on track</h2>
     <p class="lead">Five properties meant dozens of conversations, documents, and moving parts. REsimpli gave Cameron&rsquo;s team one place to run the deal, first call to final wire.</p>
     <div class="feat reveal">
-      <div><div class="ft">Faster follow-up from the first call</div><p class="fd">The built-in Dialer connected Cameron with the seller immediately, and AI Call Summaries documented the key details and next steps after every conversation. Nothing was left to memory or handwritten notes.</p></div>
-      <div><div class="ft">Every conversation stayed connected</div><p class="fd">Calls, SMS, and notes lived in one communication timeline, so the whole team worked from the same context without switching between apps.</p></div>
-      <div><div class="ft">Every property stayed organized</div><p class="fd">Agreements, photos, and assignment documents stayed organized under the deal in the Property Dashboard and Files, easy for acquisitions, dispo, and operations to find.</p></div>
-      <div><div class="ft">One team. One source of truth.</div><p class="fd">The deal moved from Offers Made to Under Contract, Marketing to Buyers, Showing to Buyers, Accepted Offer, and Sold, with the whole team tracking progress on the same record at every step.</p></div>
+      <div class="card"><div class="ft">Dialer</div><p class="fd">Cameron connected with the seller straight from the platform, with every call logged on the lead alongside SMS and notes in one communication timeline.</p></div>
+      <div class="card"><div class="ft">AI Call Summaries</div><p class="fd">Key details and next steps documented automatically after every conversation. Nothing was left to memory or handwritten notes.</p></div>
+      <div class="card"><div class="ft">Files</div><p class="fd">Agreements, photos, and assignment documents stayed organized under the deal, easy for acquisitions, dispo, and operations to find.</p></div>
+      <div class="card"><div class="ft">Property Dashboard</div><p class="fd">Every address and milestone tracked from Offers Made to Under Contract, Marketing to Buyers, Showing to Buyers, Accepted Offer, and Sold, with the whole team on the same record at every step.</p></div>
     </div>
   </div>
 </section>
