@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     CHANGE LOG (mock-up)
+     Content source of truth: Google Doc "Left Main REI vs REsimpli:
+     Built for Investors or Built on Salesforce" (Oct 19, 2026 version)
+     https://docs.google.com/document/d/1A-q9OeFIeiVSMB2k2GvIGt76S0jwqmRTsRAqCUDS9lE
+     - Article body replaced with the Oct 19 version: new sections 2, 3, 6
+       and 11; "Which one is right for you" removed; sections renumbered;
+       Table of Contents lists 11 sections; dates updated to Oct 19.
+     - Tables: minimal style (thin dividers, no alternating row shading),
+       cells top-aligned, plan table centred.
+     - All external links open in a new tab.
+     - Layout: tighter outer margins and TOC gap; two variants
+       (with / without the lead-magnet card).
+     ===================================================================== -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Left Main REI vs REsimpli: Built for Investors or Built on Salesforce? - REsimpli</title>
+<meta name="description" content="REsimpli is proprietary software built for real estate investors: one system that takes a deal from the list to the closing table to the P&amp;L. Left Main REI is a real estate investor CRM built on Salesforce.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =============================================================
+   REsimpli blog template — editable remake (matched to live page)
+   -------------------------------------------------------------
+   1. Design tokens (edit colours, fonts, widths here)
+   2. Base + utilities
+   3. Header
+   4. Post hero (teal gradient band)
+   5. Three-column layout: TOC | article | lead-magnet card
+   6. Article typography (headings, zebra tables, lists, notes)
+   7. Floating share bar
+   8. Author card, Latest Articles, CTA band, Footer
+   9. Mockup tools (optional floating toolbar — delete before handoff)
+   ============================================================= */
+
+/* 1. DESIGN TOKENS ------------------------------------------- */
+:root{
+  color-scheme: light only;
+  --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --teal:       #1B7F82;   /* links, active TOC, AI pills, card border */
+  --teal-dark:  #146568;
+  --teal-tint:  #E6F3F3;
+  --hero-glow:  #BFE6E3;   /* hero gradient colour */
+  --red:        #E8402F;   /* primary buttons, category label */
+  --red-dark:   #CC3322;
+  --navy:       #0E2A47;   /* headings, nav, bold cells */
+  --text:       #3A4756;   /* body copy */
+  --muted:      #6F7B88;   /* meta, TOC items, labels */
+  --line:       #E3E7EB;
+  --zebra:      #F3F5F7;   /* table stripes, AI box */
+  --bg:         #FFFFFF;
+  --footer-bg:  #0E2A47;
+  --footer-text:#B8C4D0;
+
+  --header-h:   96px;
+  --header-w:   1560px;    /* header + lower sections */
+  --hero-w:     1460px;    /* hero text block */
+
+  /* Post area (TOC | article | card) */
+  --page-w:     1880px;    /* outer width of the post area */
+  --page-pad:   20px;      /* margin left of the TOC / right of the card */
+  --page-pad-left: 2.5cm;  /* space to the left of the Table of Contents (desktop) */
+  --toc-w:      240px;     /* TOC column width */
+  --toc-gap:    40px;      /* space between TOC and article */
+  --card-w:     380px;     /* lead-magnet card width (large screens) */
+  --card-gap:   56px;      /* space between article and card */
+  --article-max: none;     /* cap the article width, e.g. 1040px; none = fill */
+  --radius:     8px;
+}
+
+/* 2. BASE + UTILITIES ---------------------------------------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--font-sans);color:var(--text);background:var(--bg);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;color:var(--navy);line-height:1.25;font-weight:700}
+p{margin:0 0 1em}
+.wrap{width:100%;max-width:var(--header-w);margin:0 auto;padding:0 32px}
+.wrap--page{max-width:var(--page-w);padding:0 var(--page-pad)}
+@media (min-width:1024px){.wrap--page{padding-left:var(--page-pad-left)}}
+.skip-link{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:8px 12px;border-radius:var(--radius);z-index:100;text-decoration:none}
+.skip-link:focus{left:8px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;cursor:pointer;line-height:1.2;white-space:nowrap;font-family:inherit}
+.btn--primary{background:var(--red);color:#fff}
+.btn--primary:hover{background:var(--red-dark)}
+.btn--lg{padding:16px 30px;font-size:15px}
+
+/* Avatar: swap the initials for <img src="..."> when you have the photo */
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:600;font-size:16px;flex:none;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar--sm{width:28px;height:28px;font-size:11px}
+.avatar--lg{width:88px;height:88px;font-size:26px}
+
+/* 3. HEADER ---------------------------------------------------- */
+.site-header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 0 var(--line)}
+.site-header .wrap{display:flex;align-items:center;gap:36px;height:var(--header-h);position:relative}
+.logo{display:inline-flex;align-items:center;flex:none}
+.logo img{height:40px;width:auto}
+.logo-text{font-weight:700;font-size:26px;letter-spacing:-0.02em;color:var(--navy)}
+.logo-text b{color:var(--teal);font-weight:700}
+.site-header nav{flex:1 1 auto}
+.site-nav{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.nav-item>a{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;font-weight:500;font-size:15px;color:var(--navy);text-decoration:none;border-radius:6px;white-space:nowrap}
+.nav-item>a:hover{color:var(--teal)}
+.nav-item.has-menu>a::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75}
+.menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);width:min(1120px,calc(100vw - 32px));background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 24px 60px rgba(14,42,71,.14);padding:28px;display:none;z-index:60}
+.menu::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.nav-item.has-menu:hover .menu,.nav-item.has-menu:focus-within .menu{display:block}
+.menu-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+.menu-col h4{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600}
+.menu-col ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.menu-col a{text-decoration:none;color:var(--navy);font-size:14.5px}
+.menu-col a:hover{color:var(--teal)}
+.menu-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.menu-card{border:1px solid var(--line);border-radius:10px;padding:18px;text-decoration:none;color:inherit;display:block;background:var(--zebra)}
+.menu-card strong{display:block;color:var(--navy);margin-bottom:6px;font-size:15px}
+.menu-card p{margin:0 0 12px;font-size:14px;line-height:1.5}
+.menu-card span{font-size:13px;font-weight:600;color:var(--teal)}
+.menu-foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.menu-foot a{color:var(--teal);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.header-actions{display:flex;align-items:center;gap:18px;margin-left:auto;flex:none}
+.header-actions .login{font-weight:600;font-size:15px;color:var(--navy);text-decoration:none;white-space:nowrap}
+.header-actions .login:hover{color:var(--teal)}
+.nav-toggle{display:none;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:9px 12px;font:inherit;font-weight:600;font-size:14px;color:var(--navy);cursor:pointer}
+@media (max-width:1200px){
+  .site-nav{display:none}
+  .header-actions .login{display:none}
+  .nav-toggle{display:inline-flex}
+  body.nav-open .site-nav{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:var(--header-h);left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:10px 16px 18px;box-shadow:0 24px 40px rgba(14,42,71,.1)}
+  body.nav-open .nav-item>a{width:100%;justify-content:space-between;padding:12px 10px}
+  .menu{display:none !important}
+}
+@media (max-width:640px){.header-actions .btn{display:none}:root{--header-h:72px}}
+
+/* 4. POST HERO ------------------------------------------------ */
+.post-hero{position:relative;padding:112px 0 64px;background:
+  radial-gradient(62% 170% at 90% 22%, var(--hero-glow) 0%, rgba(191,230,227,.6) 40%, rgba(191,230,227,0) 74%),
+  #fff;
+  box-shadow:0 14px 34px rgba(14,42,71,.07)}
+.post-hero .wrap{max-width:var(--hero-w)}
+.category{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.category:hover{color:var(--red-dark)}
+.post-title{font-size:clamp(34px,3.6vw,60px);margin:22px 0 30px;max-width:1180px;letter-spacing:-0.01em;line-height:1.15}
+.post-meta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:500}
+.post-meta .sep{color:#C5CCD4}
+.author-row{display:flex;align-items:center;gap:14px;margin-top:32px}
+.author-row small{display:block;font-size:10.5px;color:var(--muted);line-height:1.3;text-transform:uppercase;letter-spacing:.14em;font-weight:500}
+.author-row strong{display:block;color:var(--teal);font-size:16px;line-height:1.4;font-weight:600;margin-top:3px}
+@media (max-width:900px){.post-hero{padding:64px 0 44px}}
+
+/* 5. THREE-COLUMN LAYOUT -------------------------------------
+   Explicit gap columns (2 and 4) so TOC→article and article→card
+   spacing can differ. TOC = col 1, article = col 3, card = col 5. */
+.post-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:40px 0;padding:56px 0 24px}
+.article{max-width:var(--article-max)}
+@media (min-width:1024px){
+  .post-layout{grid-template-columns:var(--toc-w) var(--toc-gap) minmax(0,1fr)}
+  .post-sidebar{grid-column:1;position:sticky;top:calc(var(--header-h) + 28px)}
+  .article{grid-column:3}
+  .lead-col{grid-column:3} /* card sits under the article until there is room */
+}
+@media (min-width:1300px){
+  .post-layout{grid-template-columns:var(--toc-w) var(--toc-gap) minmax(0,1fr) var(--card-gap) var(--card-w)}
+  .lead-col{grid-column:5}
+  .lead-card{position:sticky;top:calc(var(--header-h) + 28px)}
+}
+@media (min-width:1300px) and (max-width:1599px){
+  .post-layout{--card-w:340px;--card-gap:44px} /* slimmer card on laptops */
+}
+/* Keep the floating share bar off the card. Remove this rule (or the
+   .share-float block) to pull the card flush to --page-pad on the right. */
+@media (min-width:1300px){.wrap--page{padding-right:calc(var(--page-pad) + 52px)}}
+.post-sidebar{align-self:start}
+.toc h2{font-size:17px;margin:0 0 22px;letter-spacing:0}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.toc a{display:flex;align-items:flex-start;gap:12px;color:var(--muted);text-decoration:none;font-size:13.5px;line-height:1.45;text-transform:capitalize;font-weight:400}
+.toc a::before{content:"";flex:none;width:15px;height:15px;border-radius:50%;border:1.5px solid #C5CCD4;background:#fff;margin-top:2px}
+.toc a:hover{color:var(--teal)}
+.toc a.is-active{color:var(--teal);font-weight:500}
+.toc a.is-active::before{border-color:var(--teal);background:var(--teal);box-shadow:inset 0 0 0 3px #fff}
+
+/* Article column header: AI summarize box + small share toggle */
+.article{position:relative}
+.article-share-toggle{position:absolute;right:-46px;top:-12px;width:30px;height:30px;border-radius:50%;background:#C5CCD4;color:#fff;display:grid;place-items:center;text-decoration:none}
+.article-share-toggle svg{width:14px;height:14px}
+.article-share-toggle:hover{background:var(--teal)}
+@media (max-width:1299px){.article-share-toggle{right:0;top:-44px}}
+.ai-box{background:var(--zebra);border-radius:10px;padding:18px 20px 16px;margin:0 0 34px}
+.ai-box p{font-size:13px;font-weight:600;color:var(--navy);margin:0 0 12px;line-height:1.4}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;padding:6px 14px;border:1.5px solid var(--teal);border-radius:999px;font-size:12px;font-weight:600;color:var(--teal);text-decoration:none;background:#fff;cursor:pointer;font-family:inherit;line-height:1.4}
+.pill:hover{background:var(--teal);color:#fff}
+
+/* Lead-magnet card (right column) */
+.lead-col{align-self:start}
+.lead-card{border:1.5px solid var(--teal);border-radius:10px;background:#fff;padding:24px 22px 26px;max-width:var(--card-w)}
+/* Replace .lead-img with <img src="..." alt="..."> of the ebook/author visual */
+.lead-img{aspect-ratio:1.12;border-radius:8px;background:linear-gradient(160deg,#F4F7F8,#E6EDF0);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);font-size:13px;font-weight:500;margin-bottom:20px}
+.lead-card h3{font-size:22px;line-height:1.3;text-align:center;margin:0 0 18px;padding:0 6px}
+.lead-card ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:9px}
+.lead-card li{font-size:14px;color:var(--navy);line-height:1.45;display:flex;gap:9px;align-items:flex-start}
+.lead-card li::before{content:"⭐";font-size:13px;line-height:1.5}
+.lead-card input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:13.5px;color:var(--text);background:#fff;margin:0 0 12px}
+.lead-card input::placeholder{color:#9AA5B1}
+.lead-card .btn{width:100%;text-transform:uppercase;letter-spacing:.05em;font-size:13px;padding:14px 20px}
+
+/* 6. ARTICLE TYPOGRAPHY -------------------------------------- */
+.article{font-size:17px;line-height:1.65;color:var(--text);min-width:0}
+.article h2{font-size:clamp(24px,2vw,30px);margin:56px 0 20px;scroll-margin-top:calc(var(--header-h) + 28px);line-height:1.25}
+.article .ai-box + p{margin-top:0}
+.article h3{font-size:21px;margin:40px 0 16px;scroll-margin-top:calc(var(--header-h) + 28px)}
+.article p{margin:0 0 22px}
+.article a{color:var(--teal);font-weight:600;text-decoration:none}
+.article a:hover{text-decoration:underline;text-underline-offset:3px}
+.article strong{color:var(--navy);font-weight:700}
+.article ul{margin:0 0 24px;padding-left:24px}
+.article li{margin:0 0 10px;padding-left:4px}
+.article li::marker{color:var(--teal)}
+.article hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+.note{font-size:15px;line-height:1.65;color:var(--muted);font-style:italic}
+.faq dt{font-weight:700;color:var(--navy);margin:0 0 8px}
+.faq dd{margin:0 0 24px}
+
+/* Tables: minimal — hairline dividers, no fills, top-aligned */
+.table-wrap{overflow-x:auto;margin:28px 0 36px;-webkit-overflow-scrolling:touch}
+.article table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.5;min-width:520px}
+.article th{text-align:left;padding:10px 16px 12px;font-weight:600;color:var(--navy);border-bottom:1.5px solid #C9D0D8;background:transparent}
+.article td{padding:13px 16px;border-bottom:1px solid var(--line)}
+.article th,.article td{vertical-align:top} /* entries align to the top of the row, not the middle */
+.article tbody tr:last-child td{border-bottom:0}
+.article tr.total td{font-weight:600;color:var(--navy)}
+.article tr.total--first td{border-top:1.5px solid #C9D0D8}
+.table--center th,.table--center td{text-align:center}
+.table--center-values th:nth-child(n+2),.table--center-values td:nth-child(n+2){text-align:center} /* first column left, value columns centred */
+.note--plain{font-style:normal}
+.article td p{margin:0 0 10px}
+.article td p:last-child{margin:0}
+
+/* 7. FLOATING SHARE BAR (right edge) --------------------------- */
+.share-float{position:fixed;right:10px;top:38%;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:40}
+.share-float .share-main{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--teal);display:grid;place-items:center;box-shadow:0 6px 18px rgba(14,42,71,.18);text-decoration:none}
+.share-float .share-main svg{width:18px;height:18px}
+.share-float .share-stack{background:#1F2A37;border-radius:999px;padding:5px;display:grid;gap:5px}
+.share-float .share-stack a{width:30px;height:30px;border-radius:50%;background:#2E3A49;color:#fff;display:grid;place-items:center;font-size:11px;font-weight:600;text-decoration:none}
+.share-float .share-stack a:hover{background:var(--teal)}
+@media (max-width:900px){.share-float{display:none}}
+
+/* 8. AUTHOR CARD / LATEST / CTA / FOOTER ---------------------- */
+.author-card{display:flex;gap:22px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:28px;background:var(--zebra);margin:56px 0 0}
+.author-card h2{font-size:22px;margin:0 0 4px}
+.author-card .link{display:inline-block;font-size:14px;font-weight:600;color:var(--teal);text-decoration:none;margin-bottom:10px}
+.author-card p{margin:0;font-size:15.5px;line-height:1.65}
+@media (max-width:640px){.author-card{flex-direction:column}}
+
+.latest{padding:72px 0 64px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px}
+.section-head h2{font-size:clamp(26px,2.4vw,34px)}
+.section-head a{font-weight:600;color:var(--teal);text-decoration:none;font-size:15px}
+.section-head a:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;gap:14px}
+/* Thumbnail placeholder: replace with <img src="..."> for real covers */
+.thumb{display:block;aspect-ratio:16/9;border-radius:var(--radius);background:linear-gradient(135deg,var(--teal-tint),#CFE5E5);border:1px solid var(--line);position:relative;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb span{position:absolute;inset:auto 14px 12px auto;font-size:12px;font-weight:600;color:var(--teal-dark);opacity:.8}
+.card h3{font-size:19px;line-height:1.35}
+.card h3 a{text-decoration:none;color:var(--navy)}
+.card h3 a:hover{color:var(--teal)}
+.byline{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+
+.cta{background:var(--teal-tint);padding:80px 0}
+.cta .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+@media (max-width:900px){.cta .wrap{grid-template-columns:1fr}}
+.cta h2{font-size:clamp(30px,3vw,44px);margin-bottom:14px}
+.cta .sub{font-size:18px;color:var(--text);margin-bottom:28px;max-width:46ch}
+.checks{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.checks li{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--navy)}
+.checks svg{width:20px;height:20px;flex:none;color:var(--teal)}
+@media (max-width:480px){.checks{grid-template-columns:1fr}}
+/* App screenshot placeholder — drop the product screenshot in here */
+.app-shot{aspect-ratio:4/3;border-radius:12px;background:#fff;border:1px solid var(--line);box-shadow:0 30px 70px rgba(14,42,71,.12);position:relative;overflow:hidden}
+.app-shot img{width:100%;height:100%;object-fit:cover}
+.app-shot .bar{height:36px;background:var(--zebra);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 14px}
+.app-shot .bar i{width:10px;height:10px;border-radius:50%;background:#D5DAE1;display:block}
+.app-shot .grid{position:absolute;inset:52px 16px 16px;display:grid;grid-template-columns:1fr 2fr;gap:12px}
+.app-shot .grid div{border-radius:10px;background:var(--zebra);border:1px solid var(--line)}
+.app-shot .label{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);font-size:13px;font-weight:600;color:var(--muted);background:#fff;padding:6px 10px;border-radius:999px;border:1px solid var(--line)}
+
+.site-footer{background:var(--footer-bg);color:var(--footer-text);padding:64px 0 28px;font-size:14.5px}
+.footer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:32px 24px}
+@media (max-width:1000px){.footer-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-col h4{color:#fff;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 16px;font-weight:700}
+.footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.footer-col a{color:var(--footer-text);text-decoration:none}
+.footer-col a:hover{color:#fff}
+.footer-connect{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+.social{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.social span{color:#fff;font-weight:600;margin-right:6px}
+.social a{color:var(--footer-text);text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px;font-size:13px}
+.social a:hover{color:#fff;border-color:#fff}
+.store-badges{display:flex;gap:10px;flex-wrap:wrap}
+/* Store badges: replace with the official badge images */
+.store-badges a{display:inline-flex;flex-direction:column;justify-content:center;background:#000;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:6px 14px;text-decoration:none;line-height:1.15;min-width:140px}
+.store-badges small{font-size:10px;opacity:.8}
+.store-badges strong{font-size:15px}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px}
+.footer-bottom ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+.footer-bottom a{color:var(--footer-text);text-decoration:none}
+.footer-bottom a:hover{color:#fff}
+
+/* 9. MOCKUP TOOLS (optional) ---------------------------------- */
+.mockup-tools{position:fixed;left:18px;bottom:18px;z-index:90;display:flex;gap:8px}
+.mockup-tools button{font:inherit;font-size:13px;font-weight:600;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;box-shadow:0 10px 30px rgba(14,42,71,.15)}
+.mockup-tools button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+body.editing [contenteditable="true"]:hover{outline:1px dashed rgba(27,127,130,.55);outline-offset:3px}
+body.editing [contenteditable="true"]:focus{outline:2px solid var(--teal);outline-offset:3px}
+@media print{.mockup-tools,.site-header,.share-float,.lead-col,.ai-box{display:none}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#primary">Skip to content</a>
+
+<!-- =====================================================================
+     HEADER
+     Logo is pulled from resimpli.com. Mega menus open on hover/focus
+     (desktop only). Replace href values as needed.
+     ===================================================================== -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="https://resimpli.com" aria-label="REsimpli home" target="_blank" rel="noopener">
+      <img src="https://resimpli.com/wp-content/themes/REsimpli/images/resimpli-logo.svg" alt="REsimpli" width="150" height="34" onerror="this.remove();document.querySelector('.logo-text').hidden=false">
+      <span class="logo-text" hidden>RE<b>simpli</b></span><!-- text fallback if the logo image can’t load -->
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="site-nav">
+        <li class="nav-item has-menu">
+          <a href="https://resimpli.com/features/" target="_blank" rel="noopener">Features</a>
+          <div class="menu">
+            <div class="menu-cols">
+              <div class="menu-col"><h4>Data</h4><ul>
+                <li><a href="https://resimpli.com/features/list-stacking/" target="_blank" rel="noopener">List Stacking</a></li>
+                <li><a href="https://resimpli.com/features/skip-tracing/" target="_blank" rel="noopener">Skip Tracing</a></li>
+                <li><a href="https://resimpli.com/features/driving-for-dollars/" target="_blank" rel="noopener">Driving For Dollars</a></li>
+                <li><a href="https://resimpli.com/features/list-pulling/" target="_blank" rel="noopener">List Pulling</a></li></ul></div>
+              <div class="menu-col"><h4>Marketing</h4><ul>
+                <li><a href="https://resimpli.com/features/automations/" target="_blank" rel="noopener">Automations</a></li>
+                <li><a href="https://resimpli.com/features/direct-mail/" target="_blank" rel="noopener">Direct Mail</a></li>
+                <li><a href="https://resimpli.com/features/seller-website/" target="_blank" rel="noopener">Seller Website</a></li>
+                <li><a href="https://resimpli.com/features/dialer/" target="_blank" rel="noopener">Triple Line Dialer</a></li></ul></div>
+              <div class="menu-col"><h4>Sales</h4><ul>
+                <li><a href="https://resimpli.com/features/crm/" target="_blank" rel="noopener">All-in-One CRM</a></li>
+                <li><a href="https://resimpli.com/features/speed-to-lead/" target="_blank" rel="noopener">Speed to Lead</a></li>
+                <li><a href="https://resimpli.com/features/custom-pipelines/" target="_blank" rel="noopener">Custom Pipelines</a></li>
+                <li><a href="https://resimpli.com/features/e-sign/" target="_blank" rel="noopener">E-Sign</a></li></ul></div>
+              <div class="menu-col"><h4>Operation</h4><ul>
+                <li><a href="https://resimpli.com/features/kpi-dashboard/" target="_blank" rel="noopener">KPI Dashboard</a></li>
+                <li><a href="https://resimpli.com/features/accounting/" target="_blank" rel="noopener">Full Accounting</a></li>
+                <li><a href="https://resimpli.com/features/contact-management/" target="_blank" rel="noopener">Contact Management</a></li>
+                <li><a href="https://resimpli.com/features/open-api/" target="_blank" rel="noopener">Open API</a></li></ul></div>
+              <div class="menu-col"><h4>More</h4><ul>
+                <li><a href="https://resimpli.com/features/" target="_blank" rel="noopener">All Features</a></li>
+                <li><a href="https://resimpli.com/features/ai-agents/" target="_blank" rel="noopener">AI Agents</a></li>
+                <li><a href="https://resimpli.com/book-a-demo/" target="_blank" rel="noopener">Book A Demo</a></li></ul></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-menu">
+          <a href="https://resimpli.com/case-studies/" target="_blank" rel="noopener">Case Study</a>
+          <div class="menu">
+            <div class="menu-cards">
+              <a class="menu-card" href="https://resimpli.com/case-studies/dean-rogers/" target="_blank" rel="noopener"><strong>Dean Rogers</strong><p>D.Rogers’ KPI-Focused Decisions Through REsimpli Generated 1 Million Dollar Revenue</p><span>Read the Case Study</span></a>
+              <a class="menu-card" href="https://resimpli.com/case-studies/sara-giret/" target="_blank" rel="noopener"><strong>Sara Giret</strong><p>Scaling &amp; Diversifying Real Estate Investing Portfolio with REsimpli</p><span>Read the Case Study</span></a>
+              <a class="menu-card" href="https://resimpli.com/case-studies/casey-gregersen/" target="_blank" rel="noopener"><strong>Casey Gregersen</strong><p>From $0 to $2,000,000 in Real Estate: Casey Gregersen with REsimpli</p><span>Read the Case Study</span></a>
+            </div>
+            <div class="menu-foot"><a href="https://resimpli.com/case-studies/" target="_blank" rel="noopener">See all</a></div>
+          </div>
+        </li>
+
+        <li class="nav-item has-menu">
+          <a href="https://resimpli.com/testimonials/" target="_blank" rel="noopener">Testimonials</a>
+          <div class="menu">
+            <div class="menu-cards">
+              <div class="menu-card"><strong>Ryan Dossey</strong><p>REsimpli has helped me close deals across wholesales, flips, and rentals since 2019.</p></div>
+              <div class="menu-card"><strong>Phil Long</strong><p>REsimpli’s Drip Campaign automates perfect follow-ups for future leads.</p></div>
+              <div class="menu-card"><strong>Michael Pinter</strong><p>REsimpli replaces multiple tools—ditched CallRail and QuickBooks, saving me $300!</p></div>
+            </div>
+            <div class="menu-foot"><a href="https://resimpli.com/testimonials/" target="_blank" rel="noopener">See all testimonials</a></div>
+          </div>
+        </li>
+
+        <li class="nav-item has-menu">
+          <a href="#">Compare</a>
+          <div class="menu">
+            <div class="menu-cols">
+              <div class="menu-col"><ul>
+                <li><a href="https://resimpli.com/left-main-rei-alternative/" target="_blank" rel="noopener">Left Main REI</a></li>
+                <li><a href="https://resimpli.com/datasift-alternative/" target="_blank" rel="noopener">DataSift</a></li>
+                <li><a href="https://resimpli.com/investorfuse-alternative/" target="_blank" rel="noopener">InvestorFuse</a></li>
+                <li><a href="https://resimpli.com/reiblackbook-alternative/" target="_blank" rel="noopener">REIBlackbook</a></li></ul></div>
+              <div class="menu-col"><ul>
+                <li><a href="https://resimpli.com/podio-alternative/" target="_blank" rel="noopener">Podio</a></li>
+                <li><a href="https://resimpli.com/forefrontcrm-alternative/" target="_blank" rel="noopener">Forefront CRM</a></li>
+                <li><a href="https://resimpli.com/salesforce-alternative/" target="_blank" rel="noopener">Salesforce</a></li>
+                <li><a href="https://resimpli.com/reireply-alternative/" target="_blank" rel="noopener">REIReply</a></li></ul></div>
+              <div class="menu-col"><ul>
+                <li><a href="https://resimpli.com/reipro-alternative/" target="_blank" rel="noopener">Reipro</a></li>
+                <li><a href="https://resimpli.com/dealmachine-alternative/" target="_blank" rel="noopener">DealMachine</a></li>
+                <li><a href="https://resimpli.com/carrot-alternative/" target="_blank" rel="noopener">Carrot</a></li>
+                <li><a href="https://resimpli.com/smrtphone-alternative/" target="_blank" rel="noopener">smrtPhone</a></li></ul></div>
+              <div class="menu-col"><ul>
+                <li><a href="https://resimpli.com/mojo-dialer-alternative/" target="_blank" rel="noopener">Mojo Dialer</a></li>
+                <li><a href="https://resimpli.com/pebble-alternative/" target="_blank" rel="noopener">Pebble</a></li>
+                <li><a href="https://resimpli.com/gohighlevel-alternative/" target="_blank" rel="noopener">GoHighLevel</a></li>
+                <li><a href="https://resimpli.com/batchdialer-alternative/" target="_blank" rel="noopener">BatchDialer</a></li></ul></div>
+              <div class="menu-col"><ul>
+                <li><a href="https://resimpli.com/smarter-contact-alternative/" target="_blank" rel="noopener">Smarter Contact</a></li>
+                <li><a href="https://resimpli.com/xleads-alternative/" target="_blank" rel="noopener">Xleads</a></li>
+                <li><a href="https://resimpli.com/cycl-sales-alternative/" target="_blank" rel="noopener">Cycl Sales</a></li></ul></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-menu">
+          <a href="#">Resource</a>
+          <div class="menu">
+            <div class="menu-cols">
+              <div class="menu-col"><h4>Learn</h4><ul>
+                <li><a href="https://realtalkwithresimpli.podbean.com/" target="_blank" rel="noopener">The Real Talk With REsimpli Podcast</a></li></ul></div>
+              <div class="menu-col"><h4>Discover</h4><ul>
+                <li><a href="https://resimpli.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+                <li><a href="https://resimpli.com/case-studies/" target="_blank" rel="noopener">Case Studies</a></li>
+                <li><a href="https://resimpli.com/our-story/" target="_blank" rel="noopener">Our Story</a></li>
+                <li><a href="https://resimpli.com/ai-recordings/" target="_blank" rel="noopener">AI Recordings</a></li></ul></div>
+              <div class="menu-col"><h4>Reviews</h4><ul>
+                <li><a href="https://www.g2.com/products/resimpli/reviews" target="_blank" rel="noopener">G2</a></li>
+                <li><a href="https://share.google/MADg1S36WjMPkDdx7" target="_blank" rel="noopener">Google</a></li>
+                <li><a href="https://www.trustpilot.com/review/resimpli.com" target="_blank" rel="noopener">Trustpilot</a></li>
+                <li><a href="https://www.trustradius.com/products/resimpli-llc/reviews" target="_blank" rel="noopener">TrustRadius</a></li></ul></div>
+              <div class="menu-col"><h4>Additional</h4><ul>
+                <li><a href="https://resimpli.com/calculators/" target="_blank" rel="noopener">Calculators</a></li>
+                <li><a href="https://resimpli.com/affiliate/" target="_blank" rel="noopener">Affiliate</a></li>
+                <li><a href="https://resimpli.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+                <li><a href="https://help.resimpli.com/en/" target="_blank" rel="noopener">Help Center</a></li></ul></div>
+              <div class="menu-col"><h4>Customer stories</h4><ul>
+                <li><a href="https://resimpli.com/book-a-demo/" target="_blank" rel="noopener">Want to see REsimpli in action?</a></li></ul></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item"><a href="https://resimpli.com/pricing/" target="_blank" rel="noopener">Pricing</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="login" href="https://dashboard.resimpli.com/auth/login" target="_blank" rel="noopener">Log in</a>
+      <a class="btn btn--primary" href="https://resimpli.com/pricing/" target="_blank" rel="noopener">Get Started For Free</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="primary">
+
+<!-- =====================================================================
+     POST HERO — category, title, meta, author
+     ===================================================================== -->
+<section class="post-hero">
+  <div class="wrap">
+    <a class="category" href="https://resimpli.com/uncategorized/" target="_blank" rel="noopener">Uncategorized</a>
+    <h1 class="post-title">Left Main REI vs REsimpli: Built for Investors or Built on Salesforce?</h1>
+    <div class="post-meta">
+      <span>Updated October 19, 2026</span>
+      <span class="sep" aria-hidden="true">|</span>
+      <span>15 min read</span>
+    </div>
+    <div class="author-row">
+      <div class="avatar" aria-hidden="true">SM</div>
+      <div>
+        <small>Written by</small>
+        <strong>Sharad Mehta</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     POST BODY — sidebar (TOC / AI summarize / share) + article
+     The TOC anchors match the live page's heading IDs (title_2 … title_8).
+     ===================================================================== -->
+<div class="wrap wrap--page">
+<div class="post-layout">
+
+  <aside class="post-sidebar">
+    <nav class="toc" aria-label="Table of contents">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#title_2">Why we built REsimpli</a></li>
+        <li><a href="#title_3">Stay on Left Main if</a></li>
+        <li><a href="#title_4">Why growing teams leave Left Main REI</a></li>
+        <li><a href="#title_5">What’s included with REsimpli</a></li>
+        <li><a href="#title_6">Getting set up, and getting help</a></li>
+        <li><a href="#title_7">Would you buy a car without driving it?</a></li>
+        <li><a href="#title_8">Built for real estate investors</a></li>
+        <li><a href="#title_9">REsimpli is built to scale</a></li>
+        <li><a href="#title_10">Built on Salesforce vs. built for investors</a></li>
+        <li><a href="#title_11">Before you sign with Left Main REI</a></li>
+        <li><a href="#title_12">Choose REsimpli if</a></li>
+      </ol>
+    </nav>
+
+  </aside>
+
+  <article class="article">
+    <a class="article-share-toggle" href="#share" aria-label="Share this article"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></a>
+
+    <div class="ai-box">
+      <p>Summarize and analyze this article with:</p>
+      <div class="pills">
+        <a class="pill" href="https://chatgpt.com/?q=Summarize+and+analyze+this+article%3A+https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener">ChatGPT</a>
+        <a class="pill" href="https://www.perplexity.ai/search?q=Summarize+and+analyze+this+article%3A+https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener">Perplexity</a>
+        <a class="pill" href="https://x.com/i/grok?text=Summarize+and+analyze+this+article%3A+https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener">Grok</a>
+        <a class="pill" href="https://www.google.com/search?udm=50&amp;q=Summarize+and+analyze+this+article%3A+https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener">Google AI</a>
+        <a class="pill" href="https://claude.ai/new?q=Summarize+and+analyze+this+article%3A+https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener">Claude</a>
+      </div>
+    </div>
+
+    <p>REsimpli is proprietary software built for real estate investors: one system that takes a deal from the list to the closing table to the P&amp;L. Left Main REI is a real estate investor CRM built on Salesforce. Both are real products for the right buyer. This article is about which buyer you are.</p>
+
+    <p>Everything here about Left Main REI comes from its published pricing, <a href="https://leftmainrei.co/terms-of-service/" target="_blank" rel="noopener">Terms of Service</a>, and <a href="https://docs.leftmainrei.co/docs" target="_blank" rel="noopener">knowledge base</a> as of October 19, 2026, and links to the clause or page it comes from. Everything about REsimpli reflects the latest version, released on September 12, 2026.</p>
+
+    <!-- 1 -------------------------------------------------------------- -->
+    <h2 id="title_2">1. Why we built REsimpli</h2>
+
+    <p>Before REsimpli, I closed more than 500 real estate transactions. The hard part of that business was never finding deals. It was running it across six pieces of software that did not know about each other: a CRM here, a dialer there, a separate texting platform, a disconnected skip-tracing tool, and numbers on QuickBooks.</p>
+
+    <p>REsimpli exists so an investor can go from a list to a closed deal and a P&amp;L, and change how that system works without filing a ticket. The latest version of REsimpli, 6.0, is the biggest step we have taken toward that: a rebuild of pipelines, automations, dialing, dashboards, and bookkeeping around how an investing company actually operates.</p>
+
+    <!-- 2 (new) -------------------------------------------------------- -->
+    <h2 id="title_3">2. Stay on Left Main if</h2>
+
+    <ul>
+      <li>You have full-time Salesforce developers on staff</li>
+      <li>You’d rather pay for the CRM, then pay again for phones, texting, a dialer, a website, buyer data, and maps, and manage every vendor yourself.</li>
+      <li>You have a process you won’t change often, and you have a budget for Professional Services hours when you do.</li>
+      <li>You want lending and title referrals inside the CRM. Left Main introduces you to third-party partners. REsimpli doesn’t.</li>
+    </ul>
+
+    <p>Left Main’s own comparison, <a href="https://leftmainrei.co/resimpli-alternatives/" target="_blank" rel="noopener">REsimpli Alternatives for Growing Real Estate Teams</a>, put the difference this way: REsimpli is built to replace apps, while Left Main is built to build companies. We’d put it differently. Left Main is built to extend Salesforce. REsimpli is built to run an investing business.</p>
+
+    <p>If the bullets above describe you, stay on Left Main. If they don’t, read on.</p>
+
+    <!-- 3 (new) -------------------------------------------------------- -->
+    <h2 id="title_4">3. Why growing teams leave Left Main REI</h2>
+
+    <p>Investors who move from Left Main to REsimpli tend to name the same reasons. Each one traces back to something in Left Main’s own pricing, contract, or documentation.</p>
+
+    <ul>
+      <li><strong>They were hiring the wrong team.</strong> This is the one we hear most. An investor signs up to grow an acquisitions team and ends up growing a Salesforce team instead: an administrator to make the changes, a consultant for the ones the administrator can’t, and a standing budget of Professional Services hours. Left Main’s pricing page lists “Customization” and “Cadence Configuration” as Enterprise features; its knowledge base is written for Salesforce administrators and sends non-trivial questions to Salesforce itself. Every hour spent in Object Manager is an hour not spent on the phone with a seller. On REsimpli, the person who changes the pipeline is the person who runs it.</li>
+      <li><strong>The bill kept growing.</strong> The CRM was the smallest line. Phones, the dialer, texting, the website, buyer data, Salesforce Maps at $45 a user, and county subscriptions for property data each arrived on a separate invoice. The five-person example in section 3 lands at $1,469 a month against $699, before the $3,000 implementation fee.</li>
+      <li><strong>Every change waited on someone else.</strong> A new lead status is an <a href="https://docs.leftmainrei.co/docs/add-a-new-lead-status-and-update-the-unqualified-reason-field-dependency" target="_blank" rel="noopener">18-step walkthrough</a> in Salesforce Object Manager. <a href="https://docs.leftmainrei.co/docs/faq-cadence-automations" target="_blank" rel="noopener">Cadence automations ship disabled</a> until an administrator configures them. Retired components are <a href="https://docs.leftmainrei.co/docs/remove-deprecated-list-view-buttons" target="_blank" rel="noopener">removed by the customer</a>. Once the included Professional Services hours are spent, the next change is a quote.</li>
+      <li><strong>They hit a ceiling.</strong> Enterprise includes 10 seats, with <a href="https://leftmainrei.co/resimpli-alternatives/" target="_blank" rel="noopener">extra users at $80 a month</a>; seats can be added any time but reduced only at the anniversary (Terms, 2.4). And every customer warrants it has 75 or fewer employees, with breach and termination above that (Terms, 3.4).</li>
+      <li><strong>The data was a week old and metered.</strong> Property Sales AI <a href="https://docs.leftmainrei.co/docs/user-guide-to-property-sales-ai-data" target="_blank" rel="noopener">refreshes every 7 days</a>, matches at 99%, and recommends a person review the misses. DispoSignals allows <a href="https://docs.leftmainrei.co/docs/disposignals-frequently-asked-questions" target="_blank" rel="noopener">20 buyer searches a month</a>. County subscriptions cannot be swapped once bought. REsimpli refreshes daily, nationwide, with unlimited buyer searches.</li>
+      <li><strong>Salesforce got in the way.</strong> A user who logs in over a VPN can be <a href="https://docs.leftmainrei.co/docs/troubleshooting-user-account-frozen" target="_blank" rel="noopener">frozen by Salesforce</a> before anyone reviews it. A Salesforce security update <a href="https://docs.leftmainrei.co/docs/release-notes-v1616-cadence-reliability-salesforce-compatibility-update" target="_blank" rel="noopener">broke buttons</a> in August 2026. Salesforce sets the <a href="https://docs.leftmainrei.co/docs/salesforce-security" target="_blank" rel="noopener">MFA and login rules</a>, and Left Main’s support <a href="https://leftmainrei.co/terms-of-service/" target="_blank" rel="noopener">excludes Salesforce platform issues</a> (Exhibit B).</li>
+      <li><strong>Help came by ticket.</strong> Support is Monday to Friday, 8am to 5pm Eastern, with a 24-hour response target, and getting help on your org means <a href="https://docs.leftmainrei.co/docs/grant-org-access-for-left-main-support" target="_blank" rel="noopener">granting Left Main login access</a> for a month. Integrations and custom development are Professional Services at the client’s cost.</li>
+      <li><strong>Leaving cost as much as staying.</strong> The full annual term is owed if you stop, and on termination access is suspended and data terminated while charges continue (Terms, 2.1 and Exhibit A). <a href="https://docs.leftmainrei.co/docs/salesforce-notes-export-limitations-and-alternatives" target="_blank" rel="noopener">Notes cannot be exported</a> without SOQL queries or paid services.</li>
+    </ul>
+
+    <p>None of these is a complaint about Left Main’s intent. They are what “built on Salesforce” costs a customer in practice: money, time, and headcount that should have gone to the real estate business, spent on the platform underneath it instead. They are also the reasons section 9 exists.</p>
+
+    <!-- 4 -------------------------------------------------------------- -->
+    <h2 id="title_5">4. What’s included with REsimpli</h2>
+
+    <p>Every REsimpli plan includes the tools a real estate investor runs the business on. AI is the only add-on. There is no implementation fee.</p>
+
+    <div class="table-wrap">
+      <table class="table--center">
+        <thead><tr><th>Plan</th><th>Monthly, billed annually</th><th>Users</th><th>Phone numbers</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Solo</strong></td><td>$249</td><td>1</td><td>1</td></tr>
+          <tr><td><strong>Team</strong></td><td>$699</td><td>5</td><td>5</td></tr>
+          <tr><td><strong>Business</strong></td><td>$1,799</td><td>15</td><td>15</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Included on every plan: unlimited calling and SMS, a triple-line dialer for every user, seller and buyer websites, automations, list builder and list stacking, skip tracing (10,000 to 50,000 a month by plan), unlimited cash buyer searches, Driving for Dollars, unlimited eSign, bookkeeping, dashboards, and an Open API. Unlimited onboarding, an account manager, and live Zoom support come with every plan.</p>
+
+    <p>Here is how that lines up against Left Main REI, where the CRM is the subscription and the rest is a list of partners:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Line item</th><th>REsimpli</th><th>Left Main REI</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CRM</strong></td><td>$249 to $1,799/mo, no implementation fee</td><td>$500 to $2,000/mo, plus $3,000 implementation fee on Starter</td></tr>
+          <tr><td><strong>Phone numbers and calling</strong></td><td>Included, unlimited</td><td>Paid add-on: smrtPhone, RingCentral, or CallRail, billed by that vendor</td></tr>
+          <tr><td><strong>Dialer</strong></td><td>Triple-line dialer for every user</td><td>Paid add-on: BatchDialer or the phone vendor, billed by that vendor</td></tr>
+          <tr><td><strong>SMS</strong></td><td>Included, unlimited</td><td>Paid add-on: Launch Control, billed by that vendor</td></tr>
+          <tr><td><strong>Websites</strong></td><td>Seller site and buyer site</td><td>Paid add-on: Carrot or WordPress, billed by that vendor</td></tr>
+          <tr><td><strong>Buyer data</strong></td><td>Unlimited cash buyer searches</td><td>Paid add-on: InvestorBase or Investorlift, billed by that vendor; DispoSignals at $1,200/mo and up, 20 buyer searches a month</td></tr>
+          <tr><td><strong>Property data</strong></td><td>Nationwide, refreshed daily</td><td>Paid add-on: Property Sales AI and DealSignals, priced per county, refreshed every 7 days</td></tr>
+          <tr><td><strong>Bookkeeping</strong></td><td>Bank import, rules, multi-entity P&amp;L, balance sheet</td><td>QuickBooks; the integration is one-way, feeds one dashboard, Enterprise-only</td></tr>
+          <tr><td><strong>Mapping and driving</strong></td><td>Map views, Driving for Dollars</td><td>Paid add-on: Salesforce Maps, $45/user/month</td></tr>
+          <tr><td><strong>Onboarding and support</strong></td><td>Unlimited onboarding, account manager on every plan, live Zoom support</td><td>$3,000 implementation on Starter, metered Professional Services hours, ticket support Mon–Fri 8–5 Eastern</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>A five-person team, side by side</h3>
+
+    <p>A five-person team needs a CRM, phones, a multi-line dialer, a website, and eSign. Say it makes 5,000 calls and sends 5,000 texts a month. On REsimpli Team, that is $699. On Left Main REI Starter with vendors from Left Main’s own integration wall, at list prices:</p>
+
+    <div class="table-wrap">
+      <table class="table--center-values">
+        <thead><tr><th>Line item</th><th>REsimpli</th><th>Left Main REI Starter</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CRM</strong></td><td>$699</td><td>$500</td></tr>
+          <tr><td><strong>Phone numbers and calling for 5 users</strong></td><td>Included</td><td>$145</td></tr>
+          <tr><td><strong>Multi-line dialer for 5 users</strong></td><td>Included</td><td>$450</td></tr>
+          <tr><td><strong>Dialer usage: 5,000 billable minutes</strong></td><td>Included</td><td>$150</td></tr>
+          <tr><td><strong>SMS usage: 5,000 single-segment texts</strong></td><td>Included</td><td>$0</td></tr>
+          <tr><td><strong>Investor website</strong></td><td>Included</td><td>$99</td></tr>
+          <tr><td><strong>eSignature for 5 users</strong></td><td>Included</td><td>$125</td></tr>
+          <tr class="total total--first"><td>Monthly recurring total</td><td>$699</td><td>$1,469</td></tr>
+          <tr class="total"><td>Annual</td><td>$8,388</td><td>$17,628</td></tr>
+          <tr class="total"><td>Year one total</td><td>$8,388</td><td>$20,628</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The CRM line is the only place Left Main REI is cheaper. Everything else runs the other way, stacking a staggering $12,240 in year one alone.</p>
+
+    <p class="note note--plain">Pricing note: figures are based on public prices from <a href="https://www.smrtphone.io/pricing/" target="_blank" rel="noopener">smrtPhone</a> (Standard, 5 users at $29), <a href="https://www.smrtphone.io/power-dialer-pricing/" target="_blank" rel="noopener">smrtDialer</a> (Multi Line, 5 seats at $90, $0.03 per minute), <a href="https://carrot.com/pricing/" target="_blank" rel="noopener">Carrot</a>, and <a href="https://www.docusign.com/products/electronic-signature" target="_blank" rel="noopener">DocuSign</a> (Standard, 5 seats at $25) as of October 15, 2026; smrtPhone and smrtDialer at monthly rates, while Carrot, DocuSign, and REsimpli use monthly equivalents of annual plans. The model assumes one billable minute per call and excludes taxes, carrier and regulatory fees. This is not a Left Main REI quote. Your stack may differ based on the providers, seat count, usage, and billing terms selected.</p>
+
+    <!-- 5 -------------------------------------------------------------- -->
+    <h2 id="title_6">5. Getting set up, and getting help</h2>
+
+    <p>On REsimpli, you can start using the platform the same day. On Left Main REI, it is a project with a fee and a budget of hours.</p>
+
+    <p><strong>REsimpli.</strong> Import your leads and contacts, pick up phone numbers, build your pipelines and automations in settings, and run the dialer that afternoon. Onboarding is unlimited on every plan: an account manager is assigned at signup, setup calls are unlimited, and support runs on live Zoom, not a ticket queue.</p>
+
+    <p><strong>Left Main REI.</strong> Starter is $500 a month plus a $3,000 implementation fee. Launch folds implementation in and adds 5 Professional Services hours, while Enterprise adds “premium implementation” and 60 hours.</p>
+
+    <p>Read those numbers as Left Main REI telling you how much setup there is. Software that is ready to use on day one does not need a $3,000 fee or a 60-hour budget to configure it.</p>
+
+    <p>Left Main’s own docs say its implementation team <a href="https://docs.leftmainrei.co/docs/setup-switch-ctiprovider-cadencesms" target="_blank" rel="noopener">connects new customers’ phone and SMS providers</a>, that <a href="https://docs.leftmainrei.co/docs/faq-cadence-automations" target="_blank" rel="noopener">cadence automations ship disabled</a> until an administrator configures them, and that existing customers adopting Next Best Action face a <a href="https://docs.leftmainrei.co/docs/post-install-steps-next-best-action" target="_blank" rel="noopener">219-step post-installation guide</a>.</p>
+
+    <p>Support afterward is by ticket, Monday to Friday 8am to 5pm Eastern, with a 24-hour response target, Salesforce platform issues excluded (Terms, Exhibit B).</p>
+
+    <p><strong>How long it takes.</strong> Left Main’s <a href="https://leftmainrei.co/real-estate-crm-features-2/" target="_blank" rel="noopener">features page</a> says most investors are up and running within 24 to 48 hours. That is a login. A configured system, with pipelines mapped to your process, cadences built and switched on, a phone provider connected, data migrated, overlapping Salesforce Flows cleared, and retired components removed, is what the 60 hours are for. Full implementation on Left Main REI can take 90 days or more.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>REsimpli</th><th>Left Main</th></tr></thead>
+        <tbody>
+          <tr><td><strong>First login</strong></td><td>Today, on a 14-day trial</td><td>After a sales call</td></tr>
+          <tr><td><strong>Cost to start</strong></td><td>$0</td><td>$3,000 implementation on Starter; folded into Launch and Enterprise</td></tr>
+          <tr><td><strong>Who configures it</strong></td><td>You, in settings, with unlimited onboarding help</td><td>Left Main’s implementation team, within 5 or 60 Professional Services hours</td></tr>
+          <tr><td><strong>Time to a working system</strong></td><td>Same day</td><td>24 to 48 hours to a login; a configured system reported at 90+ days</td></tr>
+          <tr><td><strong>Onboarding</strong></td><td>Unlimited, every plan, account manager included</td><td>Metered hours; more are billable</td></tr>
+          <tr><td><strong>Support</strong></td><td>Live Zoom, Email, Chat</td><td>Ticket, Mon–Fri 8am–5pm Eastern, 24-hour response; Salesforce issues go to Salesforce</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6 (new) -------------------------------------------------------- -->
+    <h2 id="title_7">6. Would you buy a car without driving it?</h2>
+
+    <p>Nobody buys a car off a brochure. You sit in it, you drive it, you find out whether it fits before you sign anything. A CRM is the car your whole team drives every day for a year. The same rule should apply.</p>
+
+    <p><strong>How Left Main sells.</strong> Every tier on the <a href="https://leftmainrei.co/pricing/" target="_blank" rel="noopener">pricing page</a> ends in “Talk to sales.” There is a guided demo on their site. Then a sales call. Then an annual agreement, billed monthly, with the full term owed if you stop (Terms, Section 2.1), and access suspended and your data terminated on termination while the charges continue (Exhibit A). You watch the salesperson drive it around the lot, and then you sign a twelve-month lease.</p>
+
+    <p>That is not a policy choice. It is what the product requires. Software that needs a $3,000 implementation and a 60-hour services budget cannot hand you a login on day one, because there is nothing to drive until it is configured. No trial is the honest consequence of a product that has to be configured before it works.</p>
+
+    <p><strong>How REsimpli sells.</strong> <a href="https://resimpli.com/pricing/" target="_blank" rel="noopener">Start a 14-day trial</a>, today, without talking to anyone. Import your own leads. Pick up a phone number and make real calls on the triple-line dialer. Build a pipeline the way your team works. Send a text, book an appointment, watch it land on the dashboard. At the end of two weeks, upgrade or walk away, owing nothing.</p>
+
+    <p>A demo shows you what the software can do. A trial shows you what your team will do with it at four o’clock on a Tuesday with forty leads in the queue. Whether the calls connect, whether the acquisitions manager opens it without being told to, whether the numbers on the dashboard are ones you’d run the business on. That is what you are buying, and it is the one thing a sales call cannot show you.</p>
+
+    <p>Take the car home for two weeks. If it fits, keep it.</p>
+
+    <!-- 7 -------------------------------------------------------------- -->
+    <h2 id="title_8">7. Built for real estate investors</h2>
+
+    <p>REsimpli is a dedicated CRM for real estate investors, built and run by real estate investors, and the feature stack proves why that matters.</p>
+
+    <ul>
+      <li><strong>Automation triggers</strong> that only matter to an investor: direct mail delivered or returned, appointment kept or not kept, offer amount above or below a threshold, contract price versus estimated value.</li>
+      <li><strong>A triple-line dialer</strong> in every module, for every user, with call outcomes that trigger automations.</li>
+      <li><strong>A buyer-facing dispo site</strong> with reserve pricing, Buy Now, offer deadlines, and offer submission with proof of funds.</li>
+      <li><strong>Comps AI</strong> that reads the seller conversation to estimate condition, then produces ARV, repairs, and MAO (AI add-on).</li>
+      <li><strong>Dashboards</strong> built around the investor funnel (lead, qualified, appointment, offer, contract, sold) with speed-to-lead, contract fallout, and a 30-day cash-flow forecast.</li>
+      <li><strong>List stacking</strong> with property data refreshed daily, and a Daily Update dashboard that flags new pre-foreclosures, recent sales, MLS changes, and vacancy changes inside your own database.</li>
+      <li><strong>Driving for Dollars</strong> with routed drives, geofenced actions, and driver-only seats that do not count as users.</li>
+      <li>Bookkeeping by property and scope of work, so a flip’s budget-to-actual turns red inside the deal.</li>
+    </ul>
+
+    <p>None of these are integrations. They are one system, designed around the deal, maintained by one company that answers to investors and no one else.</p>
+
+    <p>Left Main’s marketing leads with three data products. REsimpli addresses the same core use cases directly within the platform, with the underlying functionality included in the base plans:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>REsimpli has</th><th>Left Main REI sells it as</th><th>Difference</th></tr></thead>
+        <tbody>
+          <tr><td>Daily Update dashboard and list stacking tracking motivation and status changes across your whole database, refreshed daily</td><td>DealSignals: pre-foreclosure, probate, tax distress, vacancy, ownership changes, expired listings in subscribed counties</td><td>Left Main REI offers per-county coverage only, on Launch and up, set up by your Salesforce admin; nationwide coverage and daily updates included on all REsimpli plans</td></tr>
+          <tr><td>Lost Deal dashboard: which leads sold to someone else, profit lost, offer vs. sale price</td><td>Property Sales AI: county sales records matched to your leads</td><td>Per county, 7-day refresh, 25,000 data-point cap, manual match review recommended; daily and included on REsimpli</td></tr>
+          <tr><td>Cash buyer search (unlimited), MLS comps (included), Comps AI (add-on)</td><td>DispoSignals: buyer search, investor activity, comps</td><td>20 Buyer Search runs a month vs. unlimited in REsimpli</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8 -------------------------------------------------------------- -->
+    <h2 id="title_9">8. REsimpli is built to scale</h2>
+
+    <p>REsimpli is built for the whole range, from a first deal to multiple markets with dedicated acquisition, disposition, and operations teams. 6.0 added what larger teams asked for: up to 20 pipelines with 20 stages each in every module, lead access scoped by campaign, pipeline, or assignment, multiple acquisition and lead managers on one lead, unlimited custom roles, enforced two-factor authentication with device login history, multi-entity books, an Open API, and a Business plan with 15 users that can be expanded. Many REsimpli customers close 100+ deals a year on it today.</p>
+
+    <p>One contract note for anyone planning to grow: Left Main’s Terms of Service (Section 3.4) require every customer to warrant it has 75 or fewer employees, and treat exceeding that as a breach that permits termination. REsimpli’s terms have no employee cap.</p>
+
+    <!-- 9 -------------------------------------------------------------- -->
+    <h2 id="title_10">9. Built on Salesforce vs. built for investors</h2>
+
+    <p>When you buy REsimpli, you get one piece of software, written by one company, for one kind of customer. The data model is a deal: lead, contact, property, buyer, transaction, inventory, rental. The dialer, the automations, the dashboards, the dispo site, and the books are all parts of that one system.</p>
+
+    <p>When you buy Left Main REI, you get a Salesforce org with Left Main’s investor objects, cadences, and data products installed in it. That is their description, not ours: their site says the platform is built on Salesforce and carries a Salesforce Consulting Partner badge in its footer. Everything that makes it a CRM (the database, the interface, the reporting engine, the automation tooling, the security, the hosting, the release cycle) is Salesforce’s.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>REsimpli</th><th>Left Main REI</th></tr></thead>
+        <tbody>
+          <tr><td>Who wrote the CRM</td><td>REsimpli</td><td>Salesforce</td></tr>
+          <tr><td>Data model</td><td>Designed around deals</td><td>Salesforce objects, extended by Left Main REI</td></tr>
+          <tr><td>Changing a pipeline, stage, field, or role</td><td>A settings page</td><td>Salesforce configuration; Professional Services hours (5 on Launch, 60 on Enterprise)</td></tr>
+          <tr><td>Phone, SMS, email, websites</td><td>Native</td><td>Third-party vendors</td></tr>
+          <tr><td>Who sets the roadmap</td><td>REsimpli</td><td>Salesforce for the platform, Left Main REI for the layer</td></tr>
+          <tr><td>Who you call when it breaks</td><td>REsimpli</td><td>Depends on which layer broke</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The practical difference is who can change things and how fast. On REsimpli, pipelines, stages, fields, roles, call outcomes, automations, dashboards, and notification rules are settings you change yourself, today.</p>
+
+    <p>On Left Main REI, changes go through Salesforce configuration; the person doing that work needs to know Salesforce, not real estate, and anything beyond the included hours is Professional Services at the client’s cost. And because Salesforce sets its own release schedule, Left Main REI has to absorb platform changes before it builds anything for you.</p>
+
+    <p>REsimpli 6.0 shipped 20-stage pipelines, a triple-line dialer, native automations, and a bookkeeping engine because investors asked for them, not because a platform permitted them.</p>
+
+    <p>Built on Salesforce means, in practice, built for the people who know Salesforce. REsimpli is built for the people who close deals.</p>
+
+    <!-- 10 ------------------------------------------------------------- -->
+    <h2 id="title_11">10. Before you sign with Left Main REI</h2>
+
+    <p>Left Main’s contract and knowledge base answer questions its pricing page does not. None of it is hidden; all of it is worth asking a sales rep about in writing.</p>
+
+    <h3>From the contract</h3>
+
+    <p>Left Main’s <a href="https://leftmainrei.co/terms-of-service/" target="_blank" rel="noopener">Terms of Service</a> is a Salesforce reseller agreement with Left Main’s products attached: Salesforce is a named third-party beneficiary and its reseller pass-through terms are incorporated by reference. Five clauses to read before signing:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Clause</th><th>What it says</th><th>What to ask</th></tr></thead>
+        <tbody>
+          <tr><td>3.4</td><td>The customer warrants it has “seventy-five (75) or fewer employees.” Exceeding 75 is a breach and grounds for immediate termination. Employees, not CRM seats.</td><td>What happens to our contract and data at employee 76?</td></tr>
+          <tr><td>3.5</td><td>No custom objects beyond those supplied, and no functionality beyond the user guide, without a separate agreement with both Salesforce and Left Main.</td><td>Which Salesforce features are we allowed to use, and who builds what the package doesn’t ship with?</td></tr>
+          <tr><td>3.7(b)</td><td>If Salesforce or any third-party platform, data provider, or carrier changes its terms, Left Main may modify or discontinue the affected feature on shortened notice, with no liability. The <a href="https://docs.leftmainrei.co/docs/release-notes-v1616-cadence-reliability-salesforce-compatibility-update" target="_blank" rel="noopener">August 13, 2026 release note</a> shows what that looks like: buttons that stopped working after a Salesforce security update.</td><td>When Salesforce breaks something, what is the turnaround?</td></tr>
+          <tr><td>2.1, Exhibit A</td><td>Annual term, billed monthly. Full-term payment owed even if you stop using the service. On termination, access is suspended and your data terminated immediately while monthly charges continue through the term.</td><td>If we terminate in month four, what do we pay for months five through twelve? Have counsel read this one.</td></tr>
+          <tr><td>2.4, 4.3, Exhibit B</td><td>Users can be added any time but reduced only at the anniversary. Price increases at renewal are accepted by silence after 30 days. Support is by ticket, Mon–Fri 8am–5pm Eastern, excludes Salesforce platform issues, and integrations and custom development are Professional Services at your cost.</td><td>What does the eleventh seat cost, what was last year’s renewal increase, and what is the Professional Services hourly rate?</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>From the documentation</h3>
+
+    <p>The knowledge base is written for Salesforce administrators, and it reads like it. Six things a buyer learns there:</p>
+
+    <ul>
+      <li><strong>Changing a lead status is an 18-step walkthrough</strong> in Salesforce Object Manager, across the picklist editor and a field-dependency matrix (<a href="https://docs.leftmainrei.co/docs/add-a-new-lead-status-and-update-the-unqualified-reason-field-dependency" target="_blank" rel="noopener">Add a New Lead Status</a>). The “Customize Left Main” section of the docs contains two articles. On REsimpli, a stage is a drag in pipeline settings.</li>
+      <li><strong>Property Sales AI refreshes every 7 days,</strong> matches addresses at 99% accuracy, plans no enhancements for the misses, and recommends a person review matches weekly or monthly (<a href="https://docs.leftmainrei.co/docs/user-guide-to-property-sales-ai-data" target="_blank" rel="noopener">data guide</a>). The desk reference still calls it a beta. REsimpli refreshes daily.</li>
+      <li><strong>The QuickBooks integration is one-way</strong> into one marketing dashboard and is explicitly not for invoicing, taxes, or CPA reporting (<a href="https://docs.leftmainrei.co/docs/quickbooks-online-integration-overview" target="_blank" rel="noopener">overview</a>). It is also Enterprise-only.</li>
+      <li><strong>Mapping is Salesforce Maps at $45 per user per month,</strong> installed by your Salesforce administrator (<a href="https://docs.leftmainrei.co/docs/purchasing-salesforce-maps-as-a-left-main-customer" target="_blank" rel="noopener">purchasing Maps</a>).</li>
+      <li><strong>Salesforce can freeze a user for logging in over a VPN,</strong> before any admin reviews it, and the user is locked out of Left Main until your administrator restores the account (<a href="https://docs.leftmainrei.co/docs/troubleshooting-user-account-frozen" target="_blank" rel="noopener">account frozen</a>). If you run offshore cold callers or VAs, read that page twice.</li>
+      <li><strong>Notes cannot be exported</strong> with a report or object export; getting them out means SOQL queries and a spreadsheet join, or paid services (<a href="https://docs.leftmainrei.co/docs/salesforce-notes-export-limitations-and-alternatives" target="_blank" rel="noopener">notes export</a>). Price that in before you ever want to leave.</li>
+    </ul>
+
+    <p>The pattern across Left Main’s documentation: when something needs doing, the answer is your Salesforce administrator, Left Main Professional Services, or Salesforce itself. The pattern across REsimpli’s is a settings page.</p>
+
+    <!-- 11 (new) ------------------------------------------------------- -->
+    <h2 id="title_12">11. Choose REsimpli if</h2>
+
+    <ul>
+      <li>You want calling, texting, dialing, websites, buyer data, eSign, and books in one subscription, with no implementation fee.</li>
+      <li>You want to change your own pipelines, stages, and automations without a ticket or a consultant.</li>
+      <li>You want property data refreshed daily, nationwide, with no county to subscribe to.</li>
+      <li>You plan to grow past 10 seats, or 75 employees, without renegotiating a contract.</li>
+      <li>You want unlimited onboarding, an account manager, and live Zoom support on every plan.</li>
+      <li>You want to try the product before you talk to anyone.</li>
+    </ul>
+
+    <!-- FAQ ------------------------------------------------------------ -->
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <dl class="faq">
+      <dt>Is Left Main REI a white-label version of Salesforce?</dt>
+      <dd>No, and we are not saying it is. Left Main is built on Salesforce under a partner distribution agreement, with its own investor objects, cadences, and data products (DealSignals, DispoSignals, Property Sales AI) added on top. What you license is Left Main’s configuration of Salesforce, restricted by Salesforce’s embedded-edition terms (Terms of Service, Section 3.5). It is not Salesforce itself, and it is not a standalone CRM.</dd>
+
+      <dt>Does Left Main require a Salesforce developer?</dt>
+      <dd>Not for everything. Changes beyond the Professional Services hours included in your plan (none listed on Starter, 5 on Launch, 60 on Enterprise) are billable, and the person making them works in Salesforce configuration. On REsimpli, pipelines, stages, fields, roles, automations, and dashboards are settings you change yourself.</dd>
+
+      <dt>Does Left Main include calling, SMS, or a dialer?</dt>
+      <dd>Left Main’s documentation lists four phone providers that work with its cadences (CallRail, Dialpad, RingCentral, smrtPhone), each through its own package install and subscription, and describes no native calling. REsimpli includes unlimited calling and SMS and a triple-line dialer for every user on every plan.</dd>
+
+      <dt>What does Left Main cost for a five-person team?</dt>
+      <dd>Starter is $500 a month plus $3,000 implementation. With phones, a multi-line dialer, a website, and eSign from vendors on Left Main’s integration wall, the worked example above comes to about $1,469 a month and $20,628 in year one, against $699 a month and $8,388 for REsimpli Team.</dd>
+
+      <dt>Does REsimpli have an equivalent to DealSignals and DispoSignals?</dt>
+      <dd>In REsimpli, Daily Update and list stacking cover motivation changes in your database. Lost Deal covers what Property Sales AI reports. Cash buyer search and comps cover DispoSignals. They are not identical, but they are included, with no county subscription and no 20-search cap.</dd>
+
+      <dt>Does REsimpli work for large teams?</dt>
+      <dd>Yes. 6.0 was rebuilt for it: 20-pipeline modules, scoped access, custom roles, enforced 2FA, multi-entity books, and a Business plan with 15 users that can be expanded. Customers close 100+ deals a year on it. Left Main’s terms cap customers at 75 employees; REsimpli’s do not.</dd>
+    </dl>
+
+    <!-- SHORT VERSION ---------------------------------------------------- -->
+    <h2 id="short-version">The short version</h2>
+
+    <p>REsimpli is proprietary software built for real estate investors, with the tools an investor runs the business on included in the subscription.</p>
+
+    <p>Left Main REI is a Salesforce org with an investor layer on top, and the implementation fee, metered customization, vendor stack, county-priced data, and 75-employee contract follow from that. If your company already runs on Salesforce, Left Main REI may be the right trade. If it doesn’t, you would be buying a platform to get a product. REsimpli is the product.</p>
+
+    <p>See 6.0 yourself: <a href="https://resimpli.com/pricing/" target="_blank" rel="noopener">start a 14-day trial</a>. No implementation fee, free onboarding.</p>
+
+    <hr>
+
+    <p class="note">Sources, all as published on October 19, 2026: <a href="https://leftmainrei.co/pricing/" target="_blank" rel="noopener">Left Main REI pricing</a>, <a href="https://leftmainrei.co/terms-of-service/" target="_blank" rel="noopener">Left Main REI Terms of Service</a>, the <a href="https://docs.leftmainrei.co/docs" target="_blank" rel="noopener">Left Main REI knowledge base</a>, <a href="https://resimpli.com/pricing/" target="_blank" rel="noopener">REsimpli pricing</a> and feature pages, the clauses and pages linked in sections 9 and 10, and the vendor pricing pages linked in section 3. Left Main REI may change its pages after that date. REsimpli feature descriptions reflect 6.0 as released September 12, 2026.</p>
+
+    <!-- AUTHOR CARD ------------------------------------------------------ -->
+    <aside class="author-card" aria-label="About the author">
+      <div class="avatar avatar--lg" aria-hidden="true">SM</div>
+      <div>
+        <h2>Sharad Mehta</h2>
+        <a class="link" href="https://www.linkedin.com/in/sharad-mehta-resimpli/" target="_blank" rel="noopener">LinkedIn</a>
+        <p>Sharad Mehta is the founder of REsimpli, an all-in-one real estate investing platform built to help investors simplify operations, manage leads, and grow their businesses more efficiently.</p>
+      </div>
+    </aside>
+
+  </article>
+
+  <!-- RIGHT COLUMN — lead-magnet card (sticky). Swap .lead-img for the real image. -->
+  <aside class="lead-col" aria-label="Free download">
+    <div class="lead-card">
+      <div class="lead-img" role="img" aria-label="Playbook cover placeholder">Playbook image</div>
+      <h3>The Playbook That Built 7-Figure Real Estate Businesses</h3>
+      <ul>
+        <li>High-ROI Marketing Hacks</li>
+        <li>Streamlined Sales Processes</li>
+        <li>Key Metrics for Maximum Profit</li>
+      </ul>
+      <form onsubmit="return false">
+        <label class="sr-only" for="lead-email">Email</label>
+        <input id="lead-email" type="email" placeholder="Enter your email here…" autocomplete="email">
+        <button class="btn btn--primary" type="submit">Download the checklist</button>
+      </form>
+    </div>
+  </aside>
+</div><!-- /.post-layout -->
+</div><!-- /.wrap -->
+
+<!-- =====================================================================
+     LATEST ARTICLES — swap the .thumb placeholders for cover images
+     ===================================================================== -->
+<section class="latest" aria-labelledby="latest-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="latest-heading">Latest Articles</h2>
+      <a href="https://resimpli.com/blog/" target="_blank" rel="noopener">View All</a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <a class="thumb" href="https://resimpli.com/blog/best-real-estate-investment-analysis-tools-software-websites/" aria-hidden="true" tabindex="-1" target="_blank" rel="noopener"><span>Cover image</span></a>
+        <h3><a href="https://resimpli.com/blog/best-real-estate-investment-analysis-tools-software-websites/" target="_blank" rel="noopener">Best Real Estate Investment Analysis Tools, Software &amp; Websites</a></h3>
+        <div class="byline"><div class="avatar avatar--sm" aria-hidden="true">SM</div>Sharad Mehta</div>
+      </article>
+      <article class="card">
+        <a class="thumb" href="https://resimpli.com/blog/can-ai-answer-qualify-seller-calls-for-real-estate/" aria-hidden="true" tabindex="-1" target="_blank" rel="noopener"><span>Cover image</span></a>
+        <h3><a href="https://resimpli.com/blog/can-ai-answer-qualify-seller-calls-for-real-estate/" target="_blank" rel="noopener">Can AI Answer &amp; Qualify Seller Calls for Real Estate?</a></h3>
+        <div class="byline"><div class="avatar avatar--sm" aria-hidden="true">SM</div>Sharad Mehta</div>
+      </article>
+      <article class="card">
+        <a class="thumb" href="https://resimpli.com/blog/can-ai-automate-real-estate-lead-follow-up/" aria-hidden="true" tabindex="-1" target="_blank" rel="noopener"><span>Cover image</span></a>
+        <h3><a href="https://resimpli.com/blog/can-ai-automate-real-estate-lead-follow-up/" target="_blank" rel="noopener">Can AI Automate Real Estate Lead Follow-Up?</a></h3>
+        <div class="byline"><div class="avatar avatar--sm" aria-hidden="true">SM</div>Sharad Mehta</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     CTA BAND — "One app to replace them all."
+     ===================================================================== -->
+<section class="cta" aria-labelledby="cta-heading">
+  <div class="wrap">
+    <div>
+      <h2 id="cta-heading">One app to replace them all.</h2>
+      <p class="sub">All of your work in one place: Data, Marketing, Sales and Operation</p>
+      <a class="btn btn--primary btn--lg" href="https://resimpli.com/pricing/" target="_blank" rel="noopener">Start FREE Trial</a>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Up to 14 day free trial</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Unlimited onboarding</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Weekly live training</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Live zoom support</li>
+      </ul>
+    </div>
+    <!-- Replace this placeholder frame with <img src="..." alt="REsimpli app"> -->
+    <div class="app-shot" role="img" aria-label="REsimpli app screenshot placeholder">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="grid"><div></div><div></div></div>
+      <span class="label">App screenshot</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>REsimpli</h4>
+        <ul>
+          <li><a href="https://resimpli.com/our-story/" target="_blank" rel="noopener">Our Story</a></li>
+          <li><a href="https://resimpli.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+          <li><a href="https://resimpli.com/case-studies/" target="_blank" rel="noopener">Case Studies</a></li>
+          <li><a href="https://resimpli.com/affiliate/" target="_blank" rel="noopener">Affiliate Program</a></li>
+          <li><a href="https://resimpli.com/testimonials/" target="_blank" rel="noopener">Testimonials</a></li>
+          <li><a href="https://www.trustpilot.com/review/resimpli.com" target="_blank" rel="noopener">Trustpilot Reviews</a></li>
+          <li><a href="https://www.g2.com/products/resimpli/reviews" target="_blank" rel="noopener">G2 Reviews</a></li>
+          <li><a href="https://www.trustradius.com/products/resimpli-llc/reviews" target="_blank" rel="noopener">TrustRadius Reviews</a></li>
+          <li><a href="https://share.google/MADg1S36WjMPkDdx7" target="_blank" rel="noopener">Google Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://resimpli.com/ai-recordings/" target="_blank" rel="noopener">AI Recordings</a></li>
+          <li><a href="https://resimpli.com/book-a-demo/" target="_blank" rel="noopener">Book a Demo</a></li>
+          <li><a href="https://help.resimpli.com/en/" target="_blank" rel="noopener">Help Center</a></li>
+          <li><a href="https://resimpli.com/join-mastermind/" target="_blank" rel="noopener">Mastermind Group</a></li>
+          <li><a href="https://podcasts.apple.com/us/podcast/the-resimpli-podcast/id1678606901" target="_blank" rel="noopener">The REsimpli Podcast</a></li>
+          <li><a href="https://resimpli.com/academy/" target="_blank" rel="noopener">REsimpli Academy</a></li>
+          <li><a href="https://resimpli.com/calculators/" target="_blank" rel="noopener">Calculators</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Features</h4>
+        <ul>
+          <li><a href="https://resimpli.com/features/ai-agents/" target="_blank" rel="noopener">AI Agents</a></li>
+          <li><a href="https://resimpli.com/features/list-stacking/" target="_blank" rel="noopener">List Stacking</a></li>
+          <li><a href="https://resimpli.com/features/speed-to-lead/" target="_blank" rel="noopener">Speed To Lead</a></li>
+          <li><a href="https://resimpli.com/features/automations/" target="_blank" rel="noopener">Automations</a></li>
+          <li><a href="https://resimpli.com/features/crm/" target="_blank" rel="noopener">CRM</a></li>
+          <li><a href="https://resimpli.com/features/skip-tracing/" target="_blank" rel="noopener">Skip Tracing</a></li>
+          <li><a href="https://resimpli.com/features/seller-website/" target="_blank" rel="noopener">Seller Website</a></li>
+          <li><a href="https://resimpli.com/features/direct-mail/" target="_blank" rel="noopener">Direct Mail</a></li>
+          <li><a href="https://resimpli.com/features/disposition-management/" target="_blank" rel="noopener">Disposition Management</a></li>
+          <li><a href="https://resimpli.com/features/driving-for-dollars/" target="_blank" rel="noopener">Driving for Dollar</a></li>
+          <li><a href="https://resimpli.com/features/accounting/" target="_blank" rel="noopener">Accounting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Compare</h4>
+        <ul>
+          <li><a href="https://resimpli.com/gohighlevel-alternative/" target="_blank" rel="noopener">vs GoHighLevel</a></li>
+          <li><a href="https://resimpli.com/left-main-rei-alternative/" target="_blank" rel="noopener">vs Left Main REI</a></li>
+          <li><a href="https://resimpli.com/podio-alternative/" target="_blank" rel="noopener">vs Podio</a></li>
+          <li><a href="https://resimpli.com/carrot-alternative/" target="_blank" rel="noopener">vs Carrot</a></li>
+          <li><a href="https://resimpli.com/reireply-alternative/" target="_blank" rel="noopener">vs REI Reply</a></li>
+          <li><a href="https://resimpli.com/salesforce-alternative/" target="_blank" rel="noopener">vs Salesforce CRM</a></li>
+          <li><a href="https://resimpli.com/dealmachine-alternative/" target="_blank" rel="noopener">vs DealMachine</a></li>
+          <li><a href="https://resimpli.com/datasift-alternative/" target="_blank" rel="noopener">vs DataSift</a></li>
+          <li><a href="https://resimpli.com/reiblackbook-alternative/" target="_blank" rel="noopener">vs REI Blackbook</a></li>
+          <li><a href="https://resimpli.com/reipro-alternative/" target="_blank" rel="noopener">vs REIPro</a></li>
+          <li><a href="https://resimpli.com/smrtphone-alternative/" target="_blank" rel="noopener">vs smrtPhone</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="https://resimpli.com/general/" target="_blank" rel="noopener">General</a></li>
+          <li><a href="https://resimpli.com/podcasts/" target="_blank" rel="noopener">Podcasts</a></li>
+          <li><a href="https://resimpli.com/investor/" target="_blank" rel="noopener">Investor</a></li>
+          <li><a href="https://resimpli.com/mastermind/" target="_blank" rel="noopener">Mastermind</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-connect">
+      <div class="social">
+        <span>Connect</span>
+        <a href="https://www.linkedin.com/company/resimpli" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/REsimpli/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/resimpli/?hl=en" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@REsimpli/videos" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/us/app/resimpli/id1503295381" target="_blank" rel="noopener"><small>Download on the</small><strong>App Store</strong></a>
+        <a href="https://play.google.com/store/apps/details?id=com.app.resimpli&amp;gl=US&amp;pcampaignid=web_share" target="_blank" rel="noopener"><small>Get it on</small><strong>Google Play</strong></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 REsimpli</span>
+      <ul>
+        <li><a href="https://resimpli.com/llms-info.md" target="_blank" rel="noopener">Hey AI, learn about us</a></li>
+        <li><a href="https://resimpli.com/AEO%20x%20LLMs.txt" target="_blank" rel="noopener">AI-HP</a></li>
+        <li><a href="https://resimpli.com/ai-pr.txt" target="_blank" rel="noopener">AI-PR</a></li>
+        <li><a href="https://resimpli.com/privacy-policy/" target="_blank" rel="noopener">Privacy</a></li>
+        <li><a href="https://resimpli.com/terms-and-condition/" target="_blank" rel="noopener">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING SHARE BAR (right edge) — share counts are placeholders -->
+<div class="share-float" id="share" aria-label="Share">
+  <a class="share-main" href="#share" aria-label="Share this article"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></a>
+  <div class="share-stack">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener" title="Share on LinkedIn">0</a>
+    <a href="https://twitter.com/intent/tweet?text=Left%20Main%20REI%20vs%20REsimpli%3A%20Built%20for%20Investors%20or%20Built%20on%20Salesforce%3F%20-%20https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener" title="Share on X">0</a>
+    <a href="https://www.facebook.com/share.php?u=https%3A%2F%2Fresimpli.com%2Fblog%2Fresimpli-vs-left-main%2F" target="_blank" rel="noopener" title="Share on Facebook">0</a>
+  </div>
+</div>
+
+<!-- =====================================================================
+     MOCKUP TOOLS (optional) — "Edit text" makes the whole page editable in
+     the browser; "Download HTML" saves what you see. Delete this block and
+     the matching CSS (section 8) before handing the file to Lovable/dev.
+     ===================================================================== -->
+<div class="mockup-tools" data-mockup-tool>
+  <button type="button" data-edit-toggle aria-pressed="false">Edit text</button>
+  <button type="button" data-download>Download HTML</button>
+</div>
+
+<script>
+(function(){
+  // Mobile nav toggle
+  var toggle = document.querySelector('[data-nav-toggle]');
+  if (toggle) toggle.addEventListener('click', function(){
+    var open = document.body.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? 'Close' : 'Menu';
+  });
+
+  // Highlight the TOC entry for the section in view
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  var targets = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+  if ('IntersectionObserver' in window && targets.length) {
+    var current = null;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) current = e.target.id; });
+      if (!current) return;
+      links.forEach(function(a){ a.classList.toggle('is-active', a.getAttribute('href') === '#' + current); });
+    }, { rootMargin: '-25% 0px -65% 0px', threshold: 0 });
+    targets.forEach(function(t){ io.observe(t); });
+  }
+
+  // ---- Mockup tools (optional) ----
+  var editBtn = document.querySelector('[data-edit-toggle]');
+  var dlBtn = document.querySelector('[data-download]');
+  var editable = ['main', '.site-footer', '.site-nav', '.header-actions'];
+  if (editBtn) editBtn.addEventListener('click', function(){
+    var on = document.body.classList.toggle('editing');
+    editBtn.classList.toggle('on', on);
+    editBtn.setAttribute('aria-pressed', String(on));
+    editBtn.textContent = on ? 'Editing… (click to stop)' : 'Edit text';
+    editable.forEach(function(sel){
+      var el = document.querySelector(sel);
+      if (!el) return;
+      if (on) el.setAttribute('contenteditable', 'true'); else el.removeAttribute('contenteditable');
+    });
+  });
+  // While editing, clicking a link edits it instead of navigating
+  document.addEventListener('click', function(e){
+    if (document.body.classList.contains('editing') && e.target.closest('a')) e.preventDefault();
+  }, true);
+  if (dlBtn) dlBtn.addEventListener('click', function(){
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll('[contenteditable]').forEach(function(el){ el.removeAttribute('contenteditable'); });
+    clone.querySelector('body').classList.remove('editing', 'nav-open');
+    var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    var blob = new Blob([html], { type: 'text/html' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'resimpli-blog-mockup.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  });
+})();
+</script>
+</body>
+</html>
